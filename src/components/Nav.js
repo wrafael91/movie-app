@@ -1,4 +1,5 @@
 import React from 'react';
+import TopRated from '../top-rated';
 
 const Nav = () => {
     return (
@@ -6,8 +7,8 @@ const Nav = () => {
             <div className="nav-wrapper">
                 <a href="moviedb.html" className="brand-logo">TheMovieDB</a>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
-                    <li><a href="sass.html">Top Rated</a></li>
-                    <li><a href="popular.html">Popular</a></li>
+                    <li><a href={<TopRated />}>Top Rated</a></li>
+                    <li><a href="sass.html">Popular</a></li>
                     <li><a href="upcoming.html">Upcoming</a></li>
                     <li><a href="playing.html">Now Playing</a></li>
                     <li><a href="favorites.html">Favorites</a></li>

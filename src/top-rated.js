@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import MovieBox from './MovieBox';
 
 const topRatedUrl = 'https://api.themoviedb.org/3/movie/top_rated?api_key=fa75b26c24267f9f093f0967d4af43ed'; 
 
@@ -28,15 +27,15 @@ class TopRated extends Component {
         const { topmovies } = this.state
       return (
           <div className="container">
-              <h2>Top Rated Movies</h2>
+              <h2 className="top_rate">Top Rated Movies</h2>
               <div className="row">
-                      <div className="col s12">
+                      <div className="col s12 offset-s1">
                           <div className="card-image">
                               {
-                            //   topmovies.map((topmovie,i) => <div key={topmovie.id}><img src={`https://image.tmdb.org/t/p/w200/${topmovie.poster_path}`} alt={topmovie.title}/></div>)
+                    
                               topmovies.map((topmovie,i) => {
                                   return(
-                                      <MovieBox  />
+                                    <img src={`https://image.tmdb.org/t/p/w200/${topmovie.poster_path}`} alt={topmovie.title}/>
                                   )
                               })
                             }
