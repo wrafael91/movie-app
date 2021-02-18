@@ -1,16 +1,25 @@
 import React, { Component } from 'react';
 import Nav from './Nav';
-// import SearchArea from './Search';
 import TopRated from '../top-rated';
+import Popular from '../Popular';
+
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 class MovieApp extends Component {
   render() {
     return (
-      <div className="App">
-        <Nav />
-        <TopRated/>
-        {/* <SearchArea handleSubmit={this.handleSubmit} handleChange={this.handleChange}/> */}
+      <div>
+        <BrowserRouter>
+          <div>
+            <Switch>
+              <Nav />
+              <Route exact path="/toprated" element={<TopRated />}/>
+              <Route exact path="/popular" element={<Popular />}/>
+            </Switch>
+          </div>
+        </BrowserRouter>
+        
       </div>
-    )
+    );
   }
 }
 
