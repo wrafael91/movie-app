@@ -1,22 +1,22 @@
 import React from 'react';
-import TopRated from '../top-rated';
-import Popular from '../Popular';
+import { Link } from 'react-router-dom';
 
 const Nav = () => {
-    return (
-        <nav>
-            <div className="nav-wrapper">
-                <a href="moviedb.html" className="brand-logo">TheMovieDB</a>
-                <ul id="nav-mobile" className="right hide-on-med-and-down">
-                    <li><a href={<TopRated />}>Top Rated</a></li>
-                    <li><a href={<Popular />}>Popular</a></li>
-                    <li><a href="upcoming.html">Upcoming</a></li>
-                    <li><a href="playing.html">Now Playing</a></li>
-                    <li><a href="favorites.html">Favorites</a></li>
-                </ul>
-            </div>
-        </nav>
-    )
+        return(
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo">TheMovieDB</a>
+                    <div id="nav-mobile" class="right hide-on-med-and-down">
+                        <Link to="/top-rated">TopRated </Link>
+                        <Link to="/popular">Popular </Link>
+                        <Link to="/upcoming">Upcoming </Link>
+                        <Link to="/now-playing">Now-Playing </Link>
+                    </div>
+                </div>
+            </nav>
+            
+        )
 }
+
 
 export default Nav;

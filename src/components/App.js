@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
 import Nav from './Nav';
-import TopRated from '../top-rated';
-import Popular from '../Popular';
+import TopRated from './TopRated';
+import Popular from './Popular';
+import Upcoming from './Upcoming';
+import NowPlaying from './NowPlaying';
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+
 class MovieApp extends Component {
   render() {
     return (
-      <div>
-        <BrowserRouter>
-          <div>
-            <Switch>
-              <Nav />
-              <Route exact path="/toprated" element={<TopRated />}/>
-              <Route exact path="/popular" element={<Popular />}/>
-            </Switch>
-          </div>
-        </BrowserRouter>
-        
-      </div>
+      <BrowserRouter>
+        <div>
+          <Nav />
+          <Redirect from="/" to="/top-rated"/>
+          <Switch>
+            <Route path="/top-rated" component={TopRated}/>
+            <Route path="/popular" component={Popular}/>
+            <Route path="/upcoming" component={Upcoming}/>
+            <Route path="/now-playing" component={NowPlaying}/>
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }
