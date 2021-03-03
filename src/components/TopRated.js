@@ -7,7 +7,7 @@ class TopRated extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            topmovies: [],
+            topmovie: [],
             errorMessage: ''
         }
     }
@@ -16,7 +16,7 @@ class TopRated extends Component {
       axios.get(topRatedUrl)
       .then(response => {
           console.log(response)
-          this.setState({ topmovies: response.data.results })
+          this.setState({ topmovie: response.data.results })
       }).catch(error => {
           console.log(error);
           this.setState({ errorMessage: 'Error retrieving data' })
@@ -24,22 +24,26 @@ class TopRated extends Component {
     }
 
     render() {
-        const { topmovies } = this.state
+        const { topmovie } = this.state
       return (
           <div className="container">
             <h2 className="top_rate">Top Rated Movies</h2>
             <div className="row">
-                <div className="col s12">
-                    <div className="card-image">
-                    {
-                    topmovies.map((topmovie,i) => {
-                    return(
-                        <img src={`https://image.tmdb.org/t/p/w200/${topmovie.poster_path}`} alt={topmovie.title}/>
-                    )
-                    })
-                    }                  
+                {topmovie.map((topmovie,i) => {
+                return(
+                    <div className="col s12 m6 l3">
+                        <div className="card">
+                            <div className="card-image waves-effect waves-block waves-light">
+                                <img src={`https://image.tmdb.org/t/p/w200/${topmovie.poster_path}`} alt={topmovie.title}/>
+                            </div>
+                            <div className="card-content">
+                                <h6 className="">{topmovie.title}</h6>
+                                <h6 className="">{topmovie.release_date.substring(0, 4)}</h6>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                )
+                })}     
             </div>
           </div>
       )
