@@ -7,7 +7,7 @@ class Popular extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            popularMovies: [],
+            popularMovie: [],
             errorMessage: ''
         }
     }
@@ -16,7 +16,7 @@ class Popular extends Component {
       axios.get(popularUrl)
       .then(response => {
           console.log(response)
-          this.setState({ popularMovies: response.data.results })
+          this.setState({ popularMovie: response.data.results })
       }).catch(error => {
           console.log(error);
           this.setState({ errorMessage: 'Error retrieving data' })
@@ -24,22 +24,24 @@ class Popular extends Component {
     }
 
     render() {
-        const { popularMovies } = this.state
+        const { popularMovie } = this.state
       return (
           <div className="container">
-            <h2 className="top_rate">Popular Movies</h2>
+            <h3 className="top_rate">Popular Movies</h3>
             <div className="row">
-                <div className="col s12">
-                    <div className="card-image">
-                    {
-                    popularMovies.map((popularMovie,i) => {
-                    return(
-                        <img src={`https://image.tmdb.org/t/p/w200/${popularMovie.poster_path}`} alt={popularMovie.title}/>
-                    )
-                    })
-                    }                  
+                {popularMovie.map((popularMovie,i) => {
+                return(
+                    <div className="col s12 m6 l3">
+                        <div className="card">
+                            <ul>
+                                <li key={popularMovie.id} className="card-image waves-effect waves-block waves-light">
+                                    <img src={`https://image.tmdb.org/t/p/w200/${popularMovie.poster_path}`} alt={popularMovie.title}/>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                )
+                })}
             </div>
           </div>
       )

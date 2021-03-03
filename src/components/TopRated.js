@@ -27,23 +27,21 @@ class TopRated extends Component {
         const { topmovie } = this.state
       return (
           <div className="container">
-            <h2 className="top_rate">Top Rated Movies</h2>
+            <h3 className="top_rate">Top Rated Movies</h3>
             <div className="row">
                 {topmovie.map((topmovie,i) => {
                 return(
                     <div className="col s12 m6 l3">
                         <div className="card">
-                            <div className="card-image waves-effect waves-block waves-light">
-                                <img src={`https://image.tmdb.org/t/p/w200/${topmovie.poster_path}`} alt={topmovie.title}/>
-                            </div>
-                            <div className="card-content">
-                                <h6 className="">{topmovie.title}</h6>
-                                <h6 className="">{topmovie.release_date.substring(0, 4)}</h6>
-                            </div>
+                            <ul>
+                                <li key={topmovie.id} className="card-image waves-effect waves-block waves-light">
+                                    <img src={`https://image.tmdb.org/t/p/w200/${topmovie.poster_path}`} alt={topmovie.title}/>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 )
-                })}     
+                })}
             </div>
           </div>
       )

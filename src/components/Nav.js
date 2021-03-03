@@ -5,12 +5,22 @@ const Nav = () => {
         return(
             <nav>
                 <div class="nav-wrapper">
-                    <a href="#" class="brand-logo">TheMovieDB</a>
+                    <div class="brand-logo">
+                        <ul>
+                            <li><Link to="/home"><h5><b>TMDB</b></h5></Link></li>
+                        </ul>
+                    </div>
                     <div id="nav-mobile" class="right hide-on-med-and-down">
-                        <Link to="/top-rated">TopRated </Link>
-                        <Link to="/popular">Popular </Link>
-                        <Link to="/upcoming">Upcoming </Link>
-                        <Link to="/now-playing">Now-Playing </Link>
+                        <ul>
+                            <li><Link to="/home">Home</Link></li>
+                            <li><Link to="/top-rated">TopRated</Link></li>
+                            <li><Link to="/popular">Popular</Link></li>
+                            <li><Link to="/upcoming">Upcoming</Link></li>
+                            <li><Link to="/now-playing">Now-Playing</Link></li>
+                            <li><Link className="waves-effect waves-light btn" to="/sign-up">Sign-Up</Link></li>
+                            <li><Link className="waves-effect waves-light btn" to="/login">Login</Link></li>
+
+                        </ul>
                     </div>
                 </div>
             </nav>

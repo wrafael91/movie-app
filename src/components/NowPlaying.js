@@ -26,22 +26,24 @@ class NowPlaying extends Component {
     render() {
         const { nowPlaying } = this.state
       return (
-          <div className="container">
-            <h2 className="now_playing">Now Playing Movies</h2>
-            <div className="row">
-                <div className="col s12">
-                    <div className="card-image">
-                    {
-                    nowPlaying.map((nowPlaying,i) => {
-                    return(
-                        <img src={`https://image.tmdb.org/t/p/w200/${nowPlaying.poster_path}`} alt={nowPlaying.title}/>
-                    )
-                    })
-                    }                  
+        <div className="container">
+        <h3 className="top_rate">Now-Playing Movies</h3>
+        <div className="row">
+            {nowPlaying.map((nowPlaying,i) => {
+            return(
+                <div className="col s12 m6 l3">
+                    <div className="card">
+                        <ul>
+                            <li key={nowPlaying.id} className="card-image waves-effect waves-block waves-light">
+                                <img src={`https://image.tmdb.org/t/p/w200/${nowPlaying.poster_path}`} alt={nowPlaying.title}/>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-          </div>
+            )
+            })}
+        </div>
+      </div>
       )
     }
 }

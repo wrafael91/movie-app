@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Nav from './Nav';
+import Footer from './Footer';
 import TopRated from './TopRated';
 import Popular from './Popular';
 import Upcoming from './Upcoming';
@@ -20,6 +21,7 @@ class MovieApp extends Component {
             <Route path="/upcoming" component={Upcoming}/>
             <Route path="/now-playing" component={NowPlaying}/>
           </Switch>
+          <Footer />
         </div>
       </BrowserRouter>
     );
