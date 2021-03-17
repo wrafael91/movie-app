@@ -1,6 +1,6 @@
 const express = require("express");
-const InitiateMongoServer = require("../config/database.js");
-
+const InitiateMongoServer = require("./config/database");
+const cors = require('cors');
 // Initiate Mongo Server
 InitiateMongoServer();
 
