@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
-const upcomingUrl = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}`; 
+const apiKey = process.env.REACT_APP_API_KEY;
+const upcomingUrl = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}`; 
 
 class Upcoming extends Component {
     constructor(props) {
