@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-const nowPlayingUrl = 'https://api.themoviedb.org/3/movie/now_playing?api_key=fa75b26c24267f9f093f0967d4af43ed'; 
+const upcomingUrl = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}`; 
 
-class NowPlaying extends Component {
+class Upcoming extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            nowPlaying: [],
+            upcoming: [],
             errorMessage: ''
         }
     }
     
     componentDidMount() {
-      axios.get(nowPlayingUrl)
+      axios.get(upcomingUrl)
       .then(response => {
           console.log(response)
-          this.setState({ nowPlaying: response.data.results })
+          this.setState({ upcoming: response.data.results })
       }).catch(error => {
           console.log(error);
           this.setState({ errorMessage: 'Error retrieving data' })
@@ -24,18 +24,18 @@ class NowPlaying extends Component {
     }
 
     render() {
-        const { nowPlaying } = this.state
+        const { upcoming } = this.state
       return (
         <div className="container">
-        <h3 className="top_rate">Now-Playing Movies</h3>
+        <h3 className="top_rate">Upcoming Movies</h3>
         <div className="row">
-            {nowPlaying.map((nowPlaying,i) => {
+            {upcoming.map((upcoming,i) => {
             return(
                 <div className="col s12 m6 l3">
                     <div className="card">
                         <ul>
-                            <li key={nowPlaying.id} className="card-image waves-effect waves-block waves-light">
-                                <img src={`https://image.tmdb.org/t/p/w200/${nowPlaying.poster_path}`} alt={nowPlaying.title}/>
+                            <li key={upcoming.id} className="card-image waves-effect waves-block waves-light">
+                                <img src={`https://image.tmdb.org/t/p/w200/${upcoming.poster_path}`} alt={upcoming.title}/>
                             </li>
                         </ul>
                     </div>
@@ -48,4 +48,4 @@ class NowPlaying extends Component {
     }
 }
 
-export default NowPlaying;
+export default Upcoming;

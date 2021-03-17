@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+const apiKey = process.env.REACT_APP_API_KEY;
+const nowPlayingUrl = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}`; 
 
-const popularUrl = 'https://api.themoviedb.org/3/movie/popular?api_key=fa75b26c24267f9f093f0967d4af43ed'; 
-
-class Popular extends Component {
+class NowPlaying extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            popularMovie: [],
+            nowPlaying: [],
             errorMessage: ''
         }
     }
     
     componentDidMount() {
-      axios.get(popularUrl)
+      axios.get(nowPlayingUrl)
       .then(response => {
           console.log(response)
-          this.setState({ popularMovie: response.data.results })
+          this.setState({ nowPlaying: response.data.results })
       }).catch(error => {
           console.log(error);
           this.setState({ errorMessage: 'Error retrieving data' })
@@ -24,18 +24,18 @@ class Popular extends Component {
     }
 
     render() {
-        const { popularMovie } = this.state
+        const { nowPlaying } = this.state
       return (
-          <div className="container">
-            <h3 className="top_rate">Popular Movies</h3>
+        <div className="container">
+            <h3 className="top_rate">Now-Playing Movies</h3>
             <div className="row">
-                {popularMovie.map((popularMovie,i) => {
+                {nowPlaying.map((nowPlaying,i) => {
                 return(
                     <div className="col s12 m6 l3">
                         <div className="card">
                             <ul>
-                                <li key={popularMovie.id} className="card-image waves-effect waves-block waves-light">
-                                    <img src={`https://image.tmdb.org/t/p/w200/${popularMovie.poster_path}`} alt={popularMovie.title}/>
+                                <li key={nowPlaying.id} className="card-image waves-effect waves-block waves-light">
+                                    <img src={`https://image.tmdb.org/t/p/w200/${nowPlaying.poster_path}`} alt={nowPlaying.title}/>
                                 </li>
                             </ul>
                         </div>
@@ -43,9 +43,9 @@ class Popular extends Component {
                 )
                 })}
             </div>
-          </div>
+        </div>
       )
     }
 }
 
-export default Popular;
+export default NowPlaying;

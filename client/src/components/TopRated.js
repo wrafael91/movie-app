@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-const topRatedUrl = 'https://api.themoviedb.org/3/movie/top_rated?api_key=fa75b26c24267f9f093f0967d4af43ed'; 
+const topRatedUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}`; 
 
 class TopRated extends Component {
     constructor(props) {

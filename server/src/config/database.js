@@ -6,7 +6,8 @@ const MONGOURI = "mongodb://localhost:27017/database-moviedb?readPreference=prim
 const InitiateMongoServer = async () => {
   try {
     await mongoose.connect(MONGOURI, {
-      useNewUrlParser: true
+      useNewUrlParser: true,
+      useUnifiedTopology: true
     });
     console.log("Connected to DB !!");
   } catch (error) {
