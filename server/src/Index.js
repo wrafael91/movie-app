@@ -1,5 +1,4 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const InitiateMongoServer = require("../config/database.js");
 
 // Initiate Mongo Server
@@ -11,7 +10,8 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 // Middleware
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.json({ message: "API Working" });
