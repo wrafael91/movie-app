@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-// Replace this with your MONGOURI.
+// Setting up MongoDB 
 const MONGOURI = "mongodb://localhost:27017/database-moviedb?readPreference=primary&appname=MongoDB%20Compass&ssl=false";
 
 const InitiateMongoServer = async () => {
