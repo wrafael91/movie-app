@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const signUpTemplate = new mongoose.Schema({
-  fullName: {
+  fullname: {
     type: String,
     required: true
   },
@@ -24,4 +24,4 @@ const signUpTemplate = new mongoose.Schema({
 });
 
 // export model user with UserSchema
-module.exports = mongoose.model("user", signUpTemplate);
+module.exports = mongoose.model("users", signUpTemplate);
