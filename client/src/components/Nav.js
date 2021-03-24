@@ -17,14 +17,12 @@ const Nav = () => {
                             <li><Link to="/popular">Popular</Link></li>
                             <li><Link to="/upcoming">Upcoming</Link></li>
                             <li><Link to="/now-playing">Now-Playing</Link></li>
-                            <li><Link className="waves-effect waves-light btn" to="/sign-up">Sign-Up</Link></li>
+                            <li><Link className="waves-effect waves-light btn" to="/signup">Sign-Up</Link></li>
                             <li><Link className="waves-effect waves-light btn" to="/login">Login</Link></li>
-
                         </ul>
                     </div>
                 </div>
-            </nav>
-            
+            </nav>  
         )
 }
 
