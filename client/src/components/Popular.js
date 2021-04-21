@@ -29,7 +29,7 @@ class Popular extends Component {
             <div className="container">
                 <h3 className="top_rate">Popular Movies</h3>
                 <div className="row">
-                    {popularMovie.map((popularMovie,i) => {
+                    {popularMovie.map((popularMovie) => {
                     return(
                         <div className="col s12 m6 l3">
                             <div className="card">

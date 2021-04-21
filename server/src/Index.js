@@ -1,27 +1,21 @@
 const express = require("express");
-const dotenv = require("dotenv");
-const InitiateMongoServer = require("./config/Database");
-const cors = require('cors');
-const routesUrls = require('./routes/Routes.js'); 
-
-// Initiate Mongo Server
-InitiateMongoServer();
-
 const app = express();
+const morgan = require('morgan');
+require("./routes/database.js");
+const cors = require('cors');
 
 // PORT
-const PORT = process.env.PORT || 4000;
+app.set('Port', 5000);
 
 // Middleware
+app.use(morgan('dev'));
+app.use(express.urlencoded({extended: true}))
 app.use(express.json());
-app.use(cors());
-app.use('/app', routesUrls);
+app.use(cors({origen: "*"}));
 
-app.get("/", (req, res) => {
-  res.json({ message: "API Working" });
-});
+//Routes
+app.use('/app', require('./routes/routes.js'));
 
-
-app.listen(PORT, (req, res) => {
-  console.log(`Server Started at PORT ${PORT}`);
-});
+app.listen(app.get('Port'), () => {
+  console.log('Server running on port ', app.get('Port'))
+})

@@ -29,7 +29,7 @@ class TopRated extends Component {
             <div className="container">
                 <h3 className="top_rate">Top Rated Movies</h3>
                 <div className="row">
-                    {topmovie.map((topmovie,i) => {
+                    {topmovie.map((topmovie) => {
                     return(
                         <div className="col s12 m6 l3">
                             <div className="card">

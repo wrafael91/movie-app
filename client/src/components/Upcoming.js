@@ -29,7 +29,7 @@ class Upcoming extends Component {
             <div className="container">
                 <h3 className="top_rate">Upcoming Movies</h3>
                 <div className="row">
-                    {upcoming.map((upcoming,i) => {
+                    {upcoming.map((upcoming) => {
                     return(
                         <div className="col s12 m6 l3">
                             <div className="card">

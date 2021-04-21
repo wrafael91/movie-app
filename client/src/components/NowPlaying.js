@@ -29,7 +29,7 @@ class NowPlaying extends Component {
             <div className="container">
                 <h3 className="top_rate">Now-Playing Movies</h3>
                 <div className="row">
-                    {nowPlaying.map((nowPlaying,i) => {
+                    {nowPlaying.map((nowPlaying) => {
                     return(
                         <div className="col s12 m6 l3">
                             <div className="card">
