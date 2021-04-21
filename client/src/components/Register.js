@@ -38,55 +38,28 @@ export default function Register() {
     }
 
     return (
-        <div className="container">
-            <br/>
-            <div className="row">
-                <div className="col s12 m4 l2"><p></p></div>
-                <form className="col s12 m4 l8" onSubmit={register}>
-                    <h4>Registration Form</h4>
-                    <div className="row">
-                        <div className="">
-                            <input 
-                            placeholder="Name" 
-                            id="name" 
-                            type="text" 
-                            class="validate" 
-                            onChange={(e)=>setName(e.target.value)}
-                            autoFocus required 
-                            />
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="">
-                            <input 
-                            placeholder="Email" 
-                            id="email" 
-                            type="email" 
-                            class="validate" 
-                            onChange={(e)=>setEmail(e.target.value)} 
-                            /> 
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="">
-                            <input 
-                            placeholder="Password" 
-                            id="password" 
-                            type="password" 
-                            class="validate" 
-                            onChange={(e)=>setPassword(e.target.value)} 
-                            />
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col s12">
-                            <input type="submit" className="waves-effect waves-light btn" value="Submit"/>
-                        </div>
-                    </div>
-                </form>
-                <div className="col s12 m4 l2"><p></p></div>
-            </div>
+        <div className="row">
+            <div className="col s12 m4 l2"><p></p></div>
+            <form className="col s12 m4 l8" onSubmit={register}>
+                <h4>Registration Form</h4>
+                <div className="form-group">
+                    <label for="name">Name</label>
+                    <input placeholder="Name"  type="text" className="form-control" id="name" aria-describedby="" onChange={(e)=>setName(e.target.value)}
+                    autoFocus required />
+                </div>
+                <div className="form-group">
+                    <label for="email">Email</label>
+                    <input placeholder="Email" type="email" className="form-control" id="email" aria-describedby="emailHelp" onChange={(e)=>setEmail(e.target.value)} />
+                </div>
+                <div className="form-group">
+                    <label for="password">Password</label>
+                    <input placeholder="Password" type="password" className="form-control" id="password" onChange={(e)=>setPassword(e.target.value)}/>
+                </div>
+                <button type="submit" className="btn btn-primary">Submit</button>
+            </form>
+            <div className="col s12 m4 l2"><p></p></div>
         </div>
+        
     )
 }
 
