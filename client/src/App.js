@@ -9,6 +9,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Index from './components/Index';
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
+import Favorites from './components/Favorites';
 
 class MovieApp extends Component {
     render() {
@@ -24,6 +25,7 @@ class MovieApp extends Component {
                         <Route path="/signup" component={Register}/>
                         <Route path="/login" component={Login}/>
                         <Route path="/index" component={Index}/>
+                        <Route path="/favorites" component={Favorites}/>
                     </Switch>
                     <Footer />
                 </div>

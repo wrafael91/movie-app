@@ -30,7 +30,7 @@ export default function Register() {
             window.location.href='/login';
             Swal.fire({
                 icon: 'success',
-                title: message,
+                title: 'Successful registered',
                 showConfirmButton: false,
                 timer: 2500
             })
