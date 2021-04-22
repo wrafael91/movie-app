@@ -21,12 +21,6 @@ export default function Register() {
                 timer: 2500
             })
         } else {
-            const token = answer.data.token;
-            const name = answer.data.name;
-            const iduser = answer.data.id;
-            sessionStorage.setItem('token', token);
-            sessionStorage.setItem('name', name);
-            sessionStorage.setItem('iduser', iduser);
             window.location.href='/login';
             Swal.fire({
                 icon: 'success',
