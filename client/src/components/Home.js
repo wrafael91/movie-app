@@ -1,19 +1,21 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, {Component} from 'react';
+import Axios from 'axios';
+import MainImage from './MainImage';
 const apiKey = process.env.REACT_APP_API_KEY;
-const topRatedUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`; 
+const latestMovieUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`; 
 
 class Home extends Component {
-    constructor(props) {
-        super(props)
+
+    constructor(props){
+        super(props);
         this.state = {
             latestmovie: [],
-            errorMessage: ''
+            error: ''
         }
     }
-    
+
     componentDidMount() {
-        axios.get(topRatedUrl)
+        Axios.get(latestMovieUrl)
         .then(response => {
             console.log(response)
             this.setState({ latestmovie: response.data.results })
@@ -22,37 +24,27 @@ class Home extends Component {
             this.setState({ errorMessage: 'Error retrieving data' })
         })
     }
-
+        
+    
     render() {
-        const { latestmovie } = this.state
         return (
-            <div style={{ width: '100%', margin: '0' }}>
-                <div style={{background:`linear-gradient(to bottom, rgba(0,0,0,0)
-                39%, rgba(0,0,0,0)
-                41%, rgba(0,0,0,0.65)
-                100%),
-                url(''), #1c1c1c`,
-                height: '500px',
-                backgroundSize: '100%, cover',
-                backgroundPosition: 'center, center',
-                width: '100%',
-                position: 'relative'}}>
+        <div style={{ width: '100%', margin: 0 }}>
+            
+            {this.state.latestmovie[0] && 
+                <MainImage  image={`http://image.tmdb.org/t/p/w1280${this.state.latestmovie[0].backdrop_path}`}
+                title={this.state.latestmovie[0].original_title} text={this.state.latestmovie[0].overview}/>
+            }
 
-                </div>
-                <div style={{position:'absolute', maxWidth:'500px', bottom:'2rem', marginLeft:'2rem'}}>
-                    <h2 style={{color: 'white'}}>Title</h2>
-                    <p style={{color: 'white', fontSize: '1rem'}}>text</p>
-                </div>
-                <div style={{width: '85%', margin: '1rem auto'}}>
-                    <h2>Latest Movies</h2>
-                    <hr/>
-                    <div style={{display:'flex',justifyContent:'center'}}>
-                        <button onClick='' className="btn btn-info"> Load More </button>
-                    </div>
+            <div style={{width: '85%', margin: '1rem auto'}}>
+                <h2>Latest Movies</h2>
+                <hr/>
+                <div style={{display:'flex',justifyContent:'center'}}>
+                    <button onClick='' className="btn btn-info"> Load More </button>
                 </div>
             </div>
-        )
+        </div>
+    )
     }
-}
-
+} 
+    
 export default Home;
