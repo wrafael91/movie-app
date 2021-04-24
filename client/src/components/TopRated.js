@@ -32,10 +32,10 @@ class TopRated extends Component {
                     {topmovie.map((topmovie) => {
                     return(
                         <div className="col s12 m6 l3">
-                            <div className="card">
-                                <ul>
-                                    <li key={topmovie.id} className="card-image waves-effect waves-block waves-light">
-                                        <img src={`https://image.tmdb.org/t/p/w200/${topmovie.poster_path}`} alt={topmovie.title}/>
+                            <div className="card" style={{marginBottom: '2em', width: '12rem'}}>
+                                <ul className="list-group" style={{listStyle: 'none'}}>
+                                    <li key={topmovie.id} >
+                                        <img src={`https://image.tmdb.org/t/p/w200/${topmovie.poster_path}`} alt={topmovie.title} />
                                     </li>
                                 </ul>
                             </div>

@@ -32,9 +32,9 @@ class Upcoming extends Component {
                     {upcoming.map((upcoming) => {
                     return(
                         <div className="col s12 m6 l3">
-                            <div className="card">
-                                <ul>
-                                    <li key={upcoming.id} className="card-image waves-effect waves-block waves-light">
+                            <div className="card" style={{marginBottom: '2em', width: '12rem'}}>
+                                <ul className="list-group" style={{listStyle: 'none'}}>
+                                    <li key={upcoming.id}>
                                         <img src={`https://image.tmdb.org/t/p/w200/${upcoming.poster_path}`} alt={upcoming.title}/>
                                     </li>
                                 </ul>

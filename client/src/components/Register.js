@@ -35,6 +35,9 @@ export default function Register() {
         <div className="row">
             <div className="col s12 m4 l2"><p></p></div>
             <form className="col s12 m4 l8" onSubmit={register}>
+            <br/>
+            <br/>
+            <br/>
                 <h4>Registration Form</h4>
                 <div className="form-group">
                     <label for="name">Name</label>
@@ -50,6 +53,10 @@ export default function Register() {
                     <input placeholder="Password" type="password" className="form-control" id="password" onChange={(e)=>setPassword(e.target.value)}/>
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             </form>
             <div className="col s12 m4 l2"><p></p></div>
         </div>

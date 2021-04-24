@@ -9,11 +9,11 @@ export default function Footer() {
                 <div className="row">
                     <div className="col l6 s12">
                         <h5 className="card-title text-white">TheMovieDB</h5>
-                        <p className="card-text text-white">Mantente al día con toda la información sobre peliculas.</p>
+                        <p className="card-text text-white">Get the latest info about all movies</p>
                     </div>
-                    <div className="col l4 offset-l2 s12">
-                        <h5 className="card-title text-white">Menú</h5>
-                        <ul>
+                    <div className="">
+                        <h5 className="card-title text-white">Menu</h5>
+                        <ul style={{listStyle: 'none', padding: '0'}}>
                             <li><Link className="text-white" to="/top-rated">TopRated </Link></li>
                             <li><Link className="text-white" to="/popular">Popular </Link></li>
                             <li><Link className="text-white" to="/upcoming">Upcoming </Link></li>
@@ -21,7 +21,7 @@ export default function Footer() {
                         </ul>
                     </div>
                 </div>
-                <div className="card-title">
+                <div className="card-title ">
                     <div className="col l6 s12">
                     © 2021 Copyright - TheMovieDB - Developed by @wrmp91
                     </div>

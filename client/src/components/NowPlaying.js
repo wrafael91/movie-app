@@ -32,9 +32,9 @@ class NowPlaying extends Component {
                     {nowPlaying.map((nowPlaying) => {
                     return(
                         <div className="col s12 m6 l3">
-                            <div className="card">
-                                <ul>
-                                    <li key={nowPlaying.id} className="card-image waves-effect waves-block waves-light">
+                            <div className="card" style={{marginBottom: '2em', width: '12rem'}}>
+                                <ul className="list-group" style={{listStyle: 'none'}}>
+                                    <li key={nowPlaying.id} >
                                         <img src={`https://image.tmdb.org/t/p/w200/${nowPlaying.poster_path}`} alt={nowPlaying.title}/>
                                     </li>
                                 </ul>

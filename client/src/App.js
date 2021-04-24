@@ -7,7 +7,7 @@ import Upcoming from './components/Upcoming';
 import NowPlaying from './components/NowPlaying';
 import Register from './components/Register';
 import Login from './components/Login';
-import Index from './components/Index';
+import Home from './components/Home';
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import Favorites from './components/Favorites';
 
@@ -20,12 +20,12 @@ const userValidated = () => {
     }
 }
 
-const SecureRoute = (props) => {
-    return userValidated() ? <Route {...props} /> : <Redirect to='/login' />
-}
+// const SecureRoute = (props) => {
+//     return userValidated() ? <Route {...props} /> : <Redirect to='/login' />
+// }
 
 const PublicRoute = (props => {
-    return userValidated() ? <Redirect to='/index' /> : <Route {...props} /> 
+    return userValidated() ? <Redirect to='/login' /> : <Route {...props} /> 
 })
 
 function MovieApp() {
@@ -40,7 +40,7 @@ function MovieApp() {
                     <Route path="/now-playing" component={NowPlaying}/>
                     <Route path="/signup" component={Register}/>
                     <PublicRoute path="/login" component={Login}/>
-                    <SecureRoute path="/index" component={Index}/>
+                    <Route path="/home" component={Home}/>
                     <Route path="/favorites" component={Favorites}/>
                 </Switch>
                 <Footer />

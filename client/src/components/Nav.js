@@ -53,7 +53,7 @@ export default function Nav() {
                         <li className="nav-item-active"><a className="nav-link" href="/now-playing">Now-Playing</a></li>
                     </ul>
                     <form className="form-inline my-2 my-lg-0">
-                        <a className="btn btn-primary mr-sm-2" href="/signup" role="button">SignUp</a>
+                        <a className="btn btn-primary mr-sm-3" href="/signup" role="button">SignUp</a>
                         <a className="btn btn-success my-2 my-sm-0" href="/login" role="button">Login</a>
                     </form>
                 </div>

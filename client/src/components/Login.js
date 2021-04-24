@@ -26,7 +26,7 @@ export default function Login() {
             sessionStorage.setItem('token', token);
             sessionStorage.setItem('name', name);
             sessionStorage.setItem('iduser', iduser);
-            window.location.href='/index';
+            window.location.href='/top-rated';
             Swal.fire({
                 icon: 'success',
                 title: message,
@@ -37,42 +37,44 @@ export default function Login() {
     }
 
     return (
-        <div className="container">
-            <br/>
-            <div className="row">
+        <div className="row">
                 <div className="col s12 m4 l2"><p></p></div>
                 <form className="col s12 m4 l8" onSubmit={login}>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
                     <h4>Login Form</h4>
-                    <div className="row">
-                        <div className="">
-                            <input 
-                            placeholder="Email" 
-                            id="email" 
-                            type="email" 
-                            onChange={(e)=>setEmail(e.target.value)}
-                            autoFocus required 
-                            />
-                        </div>
+                    <div className="form-group">
+                        <label for="name">Email</label>
+                        <input 
+                        placeholder="Email" 
+                        id="email"
+                        className="form-control" 
+                        type="email" 
+                        onChange={(e)=>setEmail(e.target.value)}
+                        autoFocus required 
+                        />
                     </div>
-                    <div className="row">
-                        <div className="">
-                            <input 
-                            placeholder="Password" 
-                            id="password" 
-                            type="password" 
-                            class="validate" 
-                            onChange={(e)=>setPassword(e.target.value)}
-                            />
-                        </div>
+                    <div className="form-group">
+                        <label for="password">Password</label>
+                        <input 
+                        placeholder="Password" 
+                        id="password" 
+                        type="password" 
+                        className="form-control" 
+                        onChange={(e)=>setPassword(e.target.value)}
+                        />
                     </div>
-                    <div className="row">
-                        <div className="col s12">
-                            <input type="submit" className="waves-effect waves-light btn" value="Login"/>
-                        </div>
-                    </div>
+                    <button type="submit" className="btn btn-success">Login</button>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
                 </form>
                 <div className="col s12 m4 l2"><p></p></div>
-            </div>
+            
         </div>
     )
 }
