@@ -44,8 +44,11 @@ export default function Login() {
                 <br/>
                 <br/>
                 <br/>
-                    <h4>Login Form</h4>
+                    <div style={{display:'flex',justifyContent:'center'}}>
+                        <h4>Login Form</h4>
+                    </div>
                     <div className="form-group">
+                        <br/>
                         <label for="name">Email</label>
                         <input 
                         placeholder="Email" 
@@ -66,9 +69,14 @@ export default function Login() {
                         onChange={(e)=>setPassword(e.target.value)}
                         />
                     </div>
-                    <button type="submit" className="btn btn-success">Login</button>
-                <br/>
-                <br/>
+                    <div style={{display:'flex', justifyContent:'center'}}>
+                        <button type="submit" className="btn btn-success">Login</button>
+                        
+                    </div>
+                    <br/>
+                    <div style={{display:'flex',justifyContent:'center'}}>
+                        <h5>Haven't registered yet? <a href="/signup"> Enroll now</a></h5>
+                    </div>
                 <br/>
                 <br/>
                 <br/>

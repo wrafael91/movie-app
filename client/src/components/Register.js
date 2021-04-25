@@ -38,7 +38,11 @@ export default function Register() {
             <br/>
             <br/>
             <br/>
-                <h4>Registration Form</h4>
+                <label style={{display:'flex',justifyContent:'center'}}>To get access to all content you need to register first</label>
+                <div style={{display:'flex',justifyContent:'center'}}>
+                    <h4>Registration Form</h4>
+                </div>
+                <br/>
                 <div className="form-group">
                     <label for="name">Name</label>
                     <input placeholder="Name"  type="text" className="form-control" id="name" aria-describedby="" onChange={(e)=>setName(e.target.value)}
@@ -52,7 +56,9 @@ export default function Register() {
                     <label for="password">Password</label>
                     <input placeholder="Password" type="password" className="form-control" id="password" onChange={(e)=>setPassword(e.target.value)}/>
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <div style={{display:'flex',justifyContent:'center'}}>
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                </div>
             <br/>
             <br/>
             <br/>

@@ -10,6 +10,7 @@ import Login from './components/Login';
 import Home from './components/Home';
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import Favorites from './components/Favorites';
+import MovieInfo from './components/MovieInfo';
 
 const userValidated = () => {
     const token = sessionStorage.getItem('token');
@@ -20,12 +21,12 @@ const userValidated = () => {
     }
 }
 
-// const SecureRoute = (props) => {
-//     return userValidated() ? <Route {...props} /> : <Redirect to='/login' />
-// }
+const SecureRoute = (props) => {
+    return userValidated() ? <Route {...props} /> : <Redirect to='/login' />
+}
 
 const PublicRoute = (props => {
-    return userValidated() ? <Redirect to='/login' /> : <Route {...props} /> 
+    return userValidated() ? <Redirect to='/home' /> : <Route {...props} /> 
 })
 
 function MovieApp() {
@@ -34,14 +35,15 @@ function MovieApp() {
             <div>
                 <Nav />
                 <Switch>
-                    <Route path="/top-rated" component={TopRated}/>
-                    <Route path="/popular" component={Popular}/>
-                    <Route path="/upcoming" component={Upcoming}/>
-                    <Route path="/now-playing" component={NowPlaying}/>
+                    <SecureRoute path="/top-rated" component={TopRated}/>
+                    <SecureRoute path="/popular" component={Popular}/>
+                    <SecureRoute path="/upcoming" component={Upcoming}/>
+                    <SecureRoute path="/now-playing" component={NowPlaying}/>
                     <Route path="/signup" component={Register}/>
                     <PublicRoute path="/login" component={Login}/>
-                    <Route path="/home" component={Home}/>
-                    <Route path="/favorites" component={Favorites}/>
+                    <SecureRoute path="/home" component={Home}/>
+                    <SecureRoute path="/favorites" component={Favorites}/>
+                    <SecureRoute path="/movie/:id" component={MovieInfo}/>
                 </Switch>
                 <Footer />
             </div>
