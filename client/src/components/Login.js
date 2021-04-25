@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import Swal from 'sweetalert2';
+import {Card} from 'react-bootstrap';
 
 export default function Login() {
 
@@ -37,52 +38,54 @@ export default function Login() {
     }
 
     return (
-        <div className="row">
-                <div className="col s12 m4 l2"><p></p></div>
-                <form className="col s12 m4 l8" onSubmit={login}>
+        
+        <div className="col s12 m4 l2" style={{width: '100%', 
+        display:'flex', justifyContent:'center', alignContent:'center',marginTop:"25px", marginBottom:"25px"}}>
+            <div className="row">
+                <Card border="secondary" className="col s12 m4 l2" ><p></p>
                 <br/>
                 <br/>
-                <br/>
-                <br/>
-                    <div style={{display:'flex',justifyContent:'center'}}>
-                        <h4>Login Form</h4>
-                    </div>
-                    <div className="form-group">
+                    <form className="col s12 m4 l8" onSubmit={login}>
+                    
+                        <div style={{display:'flex',justifyContent:'center'}}>
+                            <h4>Login Form</h4>
+                        </div>
+                        <div className="form-group">
+                            <br/>
+                            <label for="name">Email</label>
+                            <input 
+                            placeholder="Email" 
+                            id="email"
+                            className="form-control" 
+                            type="email" 
+                            onChange={(e)=>setEmail(e.target.value)}
+                            autoFocus required 
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label for="password">Password</label>
+                            <input 
+                            placeholder="Password" 
+                            id="password" 
+                            type="password" 
+                            className="form-control" 
+                            onChange={(e)=>setPassword(e.target.value)}
+                            />
+                        </div>
+                        <div style={{display:'flex', justifyContent:'center'}}>
+                            <button type="submit" className="btn btn-success">Login</button>
+                            
+                        </div>
                         <br/>
-                        <label for="name">Email</label>
-                        <input 
-                        placeholder="Email" 
-                        id="email"
-                        className="form-control" 
-                        type="email" 
-                        onChange={(e)=>setEmail(e.target.value)}
-                        autoFocus required 
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label for="password">Password</label>
-                        <input 
-                        placeholder="Password" 
-                        id="password" 
-                        type="password" 
-                        className="form-control" 
-                        onChange={(e)=>setPassword(e.target.value)}
-                        />
-                    </div>
-                    <div style={{display:'flex', justifyContent:'center'}}>
-                        <button type="submit" className="btn btn-success">Login</button>
-                        
-                    </div>
+                        <div style={{display:'flex',justifyContent:'center'}}>
+                            <h5>Haven't registered yet? <a href="/signup"> Enroll now</a></h5>
+                        </div>
                     <br/>
-                    <div style={{display:'flex',justifyContent:'center'}}>
-                        <h5>Haven't registered yet? <a href="/signup"> Enroll now</a></h5>
-                    </div>
-                <br/>
-                <br/>
-                <br/>
-                </form>
-                <div className="col s12 m4 l2"><p></p></div>
-            
+                    <br/>
+                    <br/>
+                    </form>
+                </Card>
+            </div>
         </div>
     )
 }
