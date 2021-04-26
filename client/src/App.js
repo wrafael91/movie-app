@@ -8,9 +8,10 @@ import NowPlaying from './components/NowPlaying';
 import Register from './components/Register';
 import Login from './components/Login';
 import Home from './components/Home';
-import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import Favorites from './components/Favorites';
 import MovieInfo from './components/MovieInfo';
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
+
 
 const userValidated = () => {
     const token = sessionStorage.getItem('token');
@@ -29,6 +30,11 @@ const PublicRoute = (props => {
     return userValidated() ? <Redirect to='/home' /> : <Route {...props} /> 
 })
 
+const redirectToRegister = () => {
+    <Login />
+    Register.remove()
+}
+
 function MovieApp() {
     return (
         <BrowserRouter>
@@ -44,10 +50,14 @@ function MovieApp() {
                     <SecureRoute path="/home" component={Home}/>
                     <SecureRoute path="/favorites" component={Favorites}/>
                     <SecureRoute path="/movie/:id" component={MovieInfo}/>
+                    <Login />
+                    
                 </Switch>
                 <Footer />
             </div>
+            
         </BrowserRouter>
+
     );
 }
 

@@ -41,7 +41,6 @@ export default function Register() {
                     <form className="col s12 m4 l8" onSubmit={register}>
                     <br/>
                     <br/>
-                    <br/>
                         <label style={{display:'flex',justifyContent:'center'}}>To get access to all content you need to register first</label>
                         <div style={{display:'flex',justifyContent:'center'}}>
                             <h4>Registration Form</h4>
@@ -63,8 +62,8 @@ export default function Register() {
                         <div style={{display:'flex',justifyContent:'center'}}>
                             <button type="submit" className="btn btn-primary">Submit</button>
                         </div>
-                    <br/>
-                    <br/>
+                        <br/>
+                        <h5>Do you have an account already? <a href="/login"> Login Now</a></h5>
                     <br/>
                     <br/>
                     </form>
