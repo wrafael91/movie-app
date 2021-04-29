@@ -37,7 +37,7 @@ export default function Nav() {
                         <li className="nav-item-active"><a className="nav-link" href="/favorites">Favorites</a></li>
                     </ul>
                     <ul className="navbar-nav">
-                        <li className="nav-item"><a className="nav-link" href="#"><i className="fas fa-user"> Welcome {sessionStorage.getItem('name')}</i></a></li>
+                        <li className="nav-item"><a className="nav-link" href="/home"><i className="fas fa-user"> Welcome {sessionStorage.getItem('name')}</i></a></li>
                     </ul>
                     <form className="form-inline my-2 my-lg-0">
                         <a onClick={()=>logout()} className="btn btn-danger mr-sm-2" href="/top-rated" role="button">Logout</a>

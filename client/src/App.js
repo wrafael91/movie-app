@@ -30,11 +30,6 @@ const PublicRoute = (props => {
     return userValidated() ? <Redirect to='/home' /> : <Route {...props} /> 
 })
 
-const redirectToRegister = () => {
-    <Login />
-    Register.remove()
-}
-
 function MovieApp() {
     return (
         <BrowserRouter>
@@ -49,7 +44,7 @@ function MovieApp() {
                     <PublicRoute path="/login" component={Login}/>
                     <SecureRoute path="/home" component={Home}/>
                     <SecureRoute path="/favorites" component={Favorites}/>
-                    <SecureRoute path="/movie/:id" component={MovieInfo}/>
+                    <SecureRoute path="/movie/:movieId" component={MovieInfo}/>
                     <Login />
                     
                 </Switch>
