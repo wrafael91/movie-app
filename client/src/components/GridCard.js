@@ -7,7 +7,7 @@ function GridCard(props) {
                 <ul className="list-group" style={{listStyle: 'none'}}>
                     <a href={`/movie/${props.movieId}`}>
                         <li key={props.id} >
-                            <img style={{width:'100%', height:'320px'}} alt="img" src={props.image}/>
+                            <img style={{width:'100%', height:'300px'}} alt="img" src={props.image}/>
                         </li>
                     </a>
                 </ul>

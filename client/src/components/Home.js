@@ -84,11 +84,23 @@ const movieUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&l
 export default function Home() {
 
     const [movies, setMovies] = useState([]);
+    const [CurrentPage, setCurrentPage] = useState(0);
 
     useEffect(() => {
-        Axios.get(movieUrl)
-            .then(response => setMovies(response.data.results))
+        fetchMovies(movieUrl)
     }, []);
+
+    const fetchMovies = (path) => {
+        Axios.get(path)
+            .then(response => {
+                setMovies([...movies, ...response.data.results])
+                setCurrentPage(response.data.page)
+            })
+    } 
+    const handleClick = () => {
+        const movieUrl1 = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=${CurrentPage + 1}`;
+        fetchMovies(movieUrl1)
+    }
 
     return (
         <div style={{ width: '100%', margin: 0 }}>
@@ -115,8 +127,8 @@ export default function Home() {
                     ))}
                 </div>
             </div>
-            <div style={{display:'flex',justifyContent:'center'}}>
-                 <button onClick="" className="btn btn-info"> Load More </button>
+            <div style={{display:'flex', justifyContent:'center'}}>
+                 <button onClick={handleClick} className="btn btn-info"> Load More </button>
             </div>
             <br/>
             <br/>
