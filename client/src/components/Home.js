@@ -31,7 +31,7 @@ export default function Home() {
         <div style={{ width: '100%', margin: 0 }}>
             {movies[0] &&
                 <MainImage image={`http://image.tmdb.org/t/p/w1280${movies[0].backdrop_path}`} 
-                title={movies[0].original_title} text={movies[0].overview}/>
+                title={movies[0].original_title} text={movies[0].overview} />
             } 
             <div style={{width: '85%', margin: '1rem auto'}}>
                 <h2>Latest Movies</h2>
