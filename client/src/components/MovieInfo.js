@@ -1,20 +1,37 @@
 import Axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import MainImage from './MainImage';
+import GridCard from './GridCard';
+import Favorites from './Favorites';
 const apiKey = process.env.REACT_APP_API_KEY;
 
 function MovieInfo(props) {
-    
-    const [movie, setMovie] = useState([]);
+    const movieId = props.match.params.movieId
+    const [Movies, setMovie] = useState([]);
+    const [Casts, setCast] = useState([]);
+    const [Actor, setActor] = useState(false);
 
     useEffect(() => {
-        const movieId = props.match.params.movieId
+        
         Axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`)
             .then(response => response.data)
             .then(response => {
+                
                 setMovie(response)
+
+                Axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}`)
+                .then(response => response.data)
+                .then(response => {
+                    
+                    setCast(response.cast)
+                    
+                })
             })
-    })
+    }, [])
+
+    const handleClick = () => {
+        setActor(!Actor)
+    }
 
     let formatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -22,20 +39,17 @@ function MovieInfo(props) {
     });
 
     return (
-        <div >
-            {movie &&
-                <MainImage image={`http://image.tmdb.org/t/p/w1280${movie.backdrop_path}`} 
-                title={movie.original_title} text={movie.overview}/>
-            }
-
-            <br/>
-            <br/>
+        <div>
+            <div>
+                {Movies &&
+                <MainImage image={`http://image.tmdb.org/t/p/w1280${Movies.backdrop_path}`} 
+                title={Movies.original_title} text={Movies.overview}/>
+                }
+            </div>
+            
             <div style={{width: '85%', margin: '1rem auto'}}>
-                <div>
-                    <button type="submit" className="btn btn-success mx-auto d-block">Add to Favorite</button>
-                </div>
+                <Favorites userFrom={localStorage.getItem('iduser')} movieId={movieId} movieInfo={Movies}/>
                 <br/>
-                
                 <table className="table table-hover">
                     <thead>
                         <tr>
@@ -47,10 +61,10 @@ function MovieInfo(props) {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{movie.original_title}</td>
-                            <td>{movie.release_date}</td>
-                            <td>{movie.vote_average}</td>
-                            <td>{movie.runtime + ' min'}</td>
+                            <td>{Movies.original_title}</td>
+                            <td>{Movies.release_date}</td>
+                            <td>{Movies.vote_average}</td>
+                            <td>{Movies.runtime + ' min'}</td>
                         </tr>
                     </tbody>
                     <thead>
@@ -63,18 +77,40 @@ function MovieInfo(props) {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{'USD' + formatter.format(movie.revenue)}</td>
-                            <td>{movie.vote_count}</td>
-                            <td>{movie.status}</td>
-                            <td>{movie.popularity}</td>
+                            <td>{'USD' + formatter.format(Movies.revenue)}</td>
+                            <td>{Movies.vote_count}</td>
+                            <td>{Movies.status}</td>
+                            <td>{Movies.popularity}</td>
                         </tr>
                     </tbody>
                 </table>
                 <div>
-                    <button className="btn btn-primary mx-auto d-block">Starring info</button>
+                    <button 
+                    className="btn btn-primary mx-auto d-block"
+                    onClick={handleClick}>Starring info</button>
                     <hr/>
                 </div>
-            </div> 
+            </div>
+            
+            {Actor && 
+                <div className="container">
+                    <div className="row">
+                        {Casts && Casts.map((Cast, index) => (
+                            <React.Fragment key={index}>
+                                {Cast.profile_path &&
+                                    <GridCard
+                                        actor 
+                                        image={`http://image.tmdb.org/t/p/w500${Cast.profile_path}`}
+                                    />
+                                }
+                            </React.Fragment>
+                        ))}
+                    </div>
+                </div>
+            }
+
+            
+
         </div>
     )
 }

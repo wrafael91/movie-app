@@ -8,8 +8,9 @@ export default function MainImage(props) {
             100%),
             url('${props.image}'), #1c1c1c`,
             height: '500px',
+            backgroundRepeat: 'no-repeat',
             backgroundSize: '100%, cover',
-            backgroundPosition: 'center, center',
+            backgroundPosition: 'center',
             width: '100%',
             position: 'relative'}}>
             <div style={{position:'absolute', maxWidth:'500px', bottom:'2rem', marginLeft:'2rem'}}>
