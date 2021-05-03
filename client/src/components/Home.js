@@ -47,10 +47,14 @@ export default function Home() {
                             <GridCard
                                 image={movie.poster_path && `http://image.tmdb.org/t/p/w500${movie.poster_path}`}
                                 movieId={movie.id}
+                                title={movie.original_title}
+
                             />
+                            
                         </React.Fragment>
                     ))}
                 </div>
+                
             </div>
             <div style={{display:'flex', justifyContent:'center'}}>
                 <button onClick={handleClick} className="btn btn-info"> Load More </button>

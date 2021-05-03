@@ -7,7 +7,8 @@ function GridCard(props) {
                 <div className="card" style={{marginBottom: '2em', width: '12rem'}}>
                     <ul className="list-group" style={{listStyle: 'none'}}>                     
                         <li key={props.id} >
-                            <img style={{width:'100%', height:'300px'}} alt="img" src={props.image}/>
+                            <img style={{width:'100%', height:'300px'}} alt={props.original_title} src={props.image}/>
+                            <span>{props.actor}</span>
                         </li>
                     </ul>
                 </div>

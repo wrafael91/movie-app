@@ -8,7 +8,7 @@ import NowPlaying from './components/NowPlaying';
 import Register from './components/Register';
 import Login from './components/Login';
 import Home from './components/Home';
-import Favorites from './components/Favorites';
+import FavoritePage from './components/FavoritePage';
 import MovieInfo from './components/MovieInfo';
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 
@@ -43,7 +43,7 @@ function MovieApp() {
                     <Route path="/signup" component={Register}/>
                     <PublicRoute path="/login" component={Login}/>
                     <SecureRoute path="/home" component={Home}/>
-                    <SecureRoute path="/favorites" component={Favorites}/>
+                    <SecureRoute path="/favorites" component={FavoritePage}/>
                     <SecureRoute path="/movie/:movieId" component={MovieInfo}/>
                     <Login />
                     

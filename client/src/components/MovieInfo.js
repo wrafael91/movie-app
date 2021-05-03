@@ -18,13 +18,15 @@ function MovieInfo(props) {
             .then(response => {
                 
                 setMovie(response)
+                console.log(response)
 
                 Axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}`)
                 .then(response => response.data)
+                
                 .then(response => {
                     
                     setCast(response.cast)
-                    
+                    // console.log(response.cast)
                 })
             })
     }, [])
@@ -43,7 +45,7 @@ function MovieInfo(props) {
             <div>
                 {Movies &&
                 <MainImage image={`http://image.tmdb.org/t/p/w1280${Movies.backdrop_path}`} 
-                title={Movies.original_title} text={Movies.overview}/>
+                title={Movies.original_title} year={Movies.release_date} text={Movies.overview}/>
                 }
             </div>
             
@@ -87,7 +89,7 @@ function MovieInfo(props) {
                 <div>
                     <button 
                     className="btn btn-primary mx-auto d-block"
-                    onClick={handleClick}>Starring info</button>
+                    onClick={handleClick}>Starring</button>
                     <hr/>
                 </div>
             </div>
@@ -99,7 +101,7 @@ function MovieInfo(props) {
                             <React.Fragment key={index}>
                                 {Cast.profile_path &&
                                     <GridCard
-                                        actor 
+                                        actor={Cast.name} 
                                         image={`http://image.tmdb.org/t/p/w500${Cast.profile_path}`}
                                     />
                                 }
