@@ -2,9 +2,8 @@ import Axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import MainImage from './MainImage';
 import GridCard from './GridCard';
-const apiKey = process.env.REACT_APP_API_KEY;
-const movieUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`; 
-
+import apikeys from '../config/config';
+const movieUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apikeys.REACT_APP_API_KEY}&language=en-US&page=1`;
 
 export default function TopRated() {
 
@@ -23,7 +22,7 @@ export default function TopRated() {
             })
     } 
     const handleClick = () => {
-        const movieUrl1 = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=${CurrentPage + 1}`;
+        const movieUrl1 = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apikeys.REACT_APP_API_KEY}&language=en-US&page=${CurrentPage + 1}`;
         fetchMovies(movieUrl1)
     }
 

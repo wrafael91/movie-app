@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
 // Setting up MongoDB 
-const MONGOURI = "mongodb://localhost:27017/database-moviedb?readPreference=primary&appname=MongoDB%20Compass&ssl=false";
+const serverKeys = require('../config/config.js');
 
-mongoose.connect(MONGOURI, {
+mongoose.connect(serverKeys.MONGOURI_API_KEY, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,

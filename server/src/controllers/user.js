@@ -2,6 +2,7 @@ const UserCtrl = {};
 const User = require('../models/User.Model.js');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const SECRET_KEY = require('../config/config.js');
 
 UserCtrl.createUser = async (req, res) => {
     const {name, email, password} = req.body;
@@ -15,7 +16,7 @@ UserCtrl.createUser = async (req, res) => {
         })
     } else {
         NewUser.password = await bcrypt.hash(password, 10);
-        const token = jwt.sign({_id:NewUser._id}, 'secret');
+        const token = jwt.sign({_id:NewUser._id}, SECRET_KEY);
         await NewUser.save();
         res.json({
             message: 'Welcome',
