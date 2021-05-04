@@ -41,19 +41,18 @@ export default function Home() {
 
             <div className="container">
                 <div className="row">
-                    {movies && movies.map((movie, index) => (
-                        <React.Fragment key={index}>
-                            <GridCard
-                                image={movie.poster_path && `http://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                                movieId={movie.id}
-                                title={movie.original_title}
-
-                            />
-                            
-                        </React.Fragment>
-                    ))}
+                    <div className="row cols-sm-4 cols-md-6">
+                        {movies && movies.map((movie, index) => (
+                            <React.Fragment key={index}>
+                                <GridCard
+                                    image={movie.poster_path && `http://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                                    movieId={movie.id}
+                                    title={movie.original_title}
+                                />
+                            </React.Fragment>
+                        ))}
+                    </div>
                 </div>
-                
             </div>
             <div style={{display:'flex', justifyContent:'center'}}>
                 <button onClick={handleClick} className="btn btn-info"> Load More </button>
