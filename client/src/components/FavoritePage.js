@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
+import '../styles/FavoritePage.css';
 function FavoritePage() {
     
     const variables = {userFrom: localStorage.getItem('iduser')}
@@ -48,7 +49,7 @@ function FavoritePage() {
     })
 
     return (
-        <div style={{width:'85%', margin:'3rem auto'}}>
+        <div id="fav-table">
             <h3>Favorite Movies List</h3>
             <table className="table">
                 <thead>
@@ -59,9 +60,7 @@ function FavoritePage() {
                     </tr>
                 </thead>
                 <tbody>
-                    
-                        {renderTableBody}
-                    
+                    {renderTableBody}
                 </tbody>
             </table>
         </div>

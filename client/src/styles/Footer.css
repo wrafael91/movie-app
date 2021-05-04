@@ -1,0 +1,28 @@
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.menu-footer {
+    text-align: center;
+}
+
+.copyright {
+    text-align: center;
+}
+
+@media screen and (max-width: 760px) {
+    .container > div {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .movie-title > h5 {
+        display: flex;
+        justify-content: center;
+    }
+}

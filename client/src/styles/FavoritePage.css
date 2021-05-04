@@ -1,0 +1,8 @@
+#fav-table > h3, .table {
+    width: 85%;
+    margin: 3rem auto;
+}
+
+.table {
+    text-align: center;
+}
