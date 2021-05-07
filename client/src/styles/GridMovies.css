@@ -1,5 +1,27 @@
-@media screen and (min-width: 420) {
-    .row {
-        
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+@media screen and (max-width: 760px) {
+    .actor-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width:473px) {
+    .list-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }

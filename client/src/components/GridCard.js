@@ -1,31 +1,31 @@
-import React from 'react'
+import React from 'react';
+import '../styles/GridMovies.css';
 
 function GridCard(props) {
     if (props.actor) {
         return(
-            
-                <div className="col s12 m6">
-                    <div className="card" style={{marginBottom: '2em', width: '12rem'}}>
-                        <ul className="list-group" style={{listStyle: 'none'}}>                     
-                            <li key={props.id} >
-                                <img style={{width:'100%', height:'300px'}} alt={props.original_title} src={props.image}/>
-                                <span>{props.actor}</span>
-                            </li>
-                        </ul>
-                    </div>
+            <div className="col">
+                <div className="actor-card">
+                    <ul className="list-group" style={{listStyle: 'none', padding: '0'}}>                     
+                        <li key={props.id} >
+                            <img style={{width:'12rem', height:'300px', margin: '0'}} alt={props.original_title} src={props.image}/>
+                        </li>
+                        <span>{props.actor}</span>
+                        <br/>
+                    </ul>
                 </div>
-            
+            </div>
         )
     } else {
         return (
-        <div className="col s12 m6 l3">
-            <div className="card" style={{marginBottom: '2em', width: '12rem'}}>
+        <div className="col">
+            <div className="" >
                 <ul className="list-group" style={{listStyle: 'none'}}>
-                    <a href={`/movie/${props.movieId}`}>
-                        <li key={props.id} >
-                            <img style={{width:'100%', height:'300px'}} alt="img" src={props.image}/>
-                        </li>
-                    </a>
+                    <li key={props.id} >
+                        <a href={`/movie/${props.movieId}`}>
+                            <img style={{width:'12rem', height:'300px', marginBottom:'30px'}} alt="img" src={props.image}/>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

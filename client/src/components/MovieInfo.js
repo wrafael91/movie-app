@@ -26,7 +26,7 @@ function MovieInfo(props) {
                 .then(response => {
                     
                     setCast(response.cast)
-                    // console.log(response.cast)
+                    
                 })
             })
     }, [])
