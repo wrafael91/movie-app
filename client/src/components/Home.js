@@ -2,8 +2,8 @@ import Axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import MainImage from './MainImage';
 import GridCard from './GridCard';
-import '../styles/GridMovies.css';
 import apikeys from '../config/config';
+import '../styles/MainImage.css';
 const movieUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apikeys.REACT_APP_API_KEY}&language=en-US&page=1`; 
 
 export default function Home() {
@@ -28,12 +28,12 @@ export default function Home() {
     }
 
     return (
-        <div style={{ width: '100%'}}>
+        <div className="image-container">
             {movies[0] &&
                 <MainImage image={`http://image.tmdb.org/t/p/w1280${movies[0].backdrop_path}`} 
                 title={movies[0].original_title} text={movies[0].overview} />
             } 
-            <div style={{width: '85%', margin: '1rem auto'}}>
+            <div className="movie-title">
                 <h2>Latest Movies</h2>
                 <hr/>
             </div>
@@ -55,7 +55,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <div style={{display:'flex', justifyContent:'center'}}>
+            <div className="load-button">
                 <button onClick={handleClick} className="btn btn-info"> Load More </button>
             </div>
             <br/>

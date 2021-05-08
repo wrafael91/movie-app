@@ -4,7 +4,7 @@ import '../styles/GridMovies.css';
 function GridCard(props) {
     if (props.actor) {
         return(
-            <div className="col">
+            <div className="col-1">
                 <div className="actor-card">
                     <ul className="list-group">                     
                         <li key={props.id} >
@@ -18,7 +18,7 @@ function GridCard(props) {
         )
     } else {
         return (
-        <div className="col">
+        <div className="col-1">
             <div className="movie-card" >
                 <ul className="list-group">
                     <li key={props.id} >

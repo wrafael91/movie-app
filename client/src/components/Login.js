@@ -38,7 +38,6 @@ export default function Login() {
     }
 
     return (
-        
         <div className="col s12 m4 l2" style={{width: '100%', 
         display:'flex', justifyContent:'center', alignContent:'center',marginTop:"25px", marginBottom:"25px"}}>
             <div className="row">

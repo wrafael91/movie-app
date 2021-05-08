@@ -2,8 +2,8 @@ import Axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import MainImage from './MainImage';
 import GridCard from './GridCard';
-import '../styles/GridMovies.css';
 import apikeys from '../config/config';
+import '../styles/MainImage.css';
 const movieUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apikeys.REACT_APP_API_KEY}&language=en-US&page=1`;
 
 
@@ -43,7 +43,7 @@ export default function Popular() {
 
             <div className="container">
                 <div className="row">
-                    <div className="row cols-sm-4 cols-md-6">
+                    <div className="row cols-sm-4 cols-md-6 cols-lg-2">
                         {movies && movies.map((movie, index) => (
                             <React.Fragment key={index}>
                                 <GridCard

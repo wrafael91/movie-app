@@ -4,7 +4,7 @@
     align-content: center;
 }
 
-.col {
+.col-1 {
     flex-basis: 0;
     flex-grow: 1;
     max-width: 100%;
@@ -17,6 +17,11 @@
 .list-group {
     list-style: none; 
     padding: 0;
+}
+
+.list-group span {
+    color: #000;
+    text-align: center;
 }
 
 img {
