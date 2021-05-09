@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 import MainImage from './MainImage';
 import GridCard from './GridCard';
 import Favorites from './Favorites';
-import apikeys from '../config/config'
+import apikeys from '../config/config';
+import '../styles/MovieInfo.css';
 
 function MovieInfo(props) {
     const movieId = props.match.params.movieId
@@ -48,9 +49,11 @@ function MovieInfo(props) {
                 }
             </div>
             
-            <div style={{width: '85%', margin: '1rem auto'}}>
+            <div className="movie-data">
                 <Favorites userFrom={localStorage.getItem('iduser')} movieId={movieId} movieInfo={Movies}/>
                 <br/>
+                <br/>
+                <span>Movie Info</span>
                 <table className="table table-hover">
                     <thead>
                         <tr>

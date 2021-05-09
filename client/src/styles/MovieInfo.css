@@ -1,0 +1,12 @@
+.movie-data {
+    width: 85%; 
+    margin: 1rem auto;
+}
+
+.movie-data > span {
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+}

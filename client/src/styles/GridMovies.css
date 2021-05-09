@@ -24,6 +24,22 @@
     text-align: center;
 }
 
+.list-group-movie {
+    list-style: none; 
+    padding: 0;
+}
+
+.list-group-movie label {
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    text-align: center;
+    max-width: 12rem;
+    word-wrap: break-word;
+    color: #000;
+    font-weight: 700;
+}
+
 img {
     width: 12rem; 
     height: 300px; 

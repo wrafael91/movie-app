@@ -20,13 +20,15 @@ function GridCard(props) {
         return (
         <div className="col-1">
             <div className="movie-card" >
-                <ul className="list-group">
+                <ul className="list-group-movie">
                     <li key={props.id} >
                         <a href={`/movie/${props.movieId}`}>
                             <img alt="img" src={props.image}/>
                         </a>
                     </li>
+                    <label>{props.title}</label>
                 </ul>
+                
             </div>
         </div>
     )

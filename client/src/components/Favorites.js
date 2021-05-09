@@ -63,6 +63,8 @@ export default function Favorites(props) {
 
     return (
         <div>
+            <br/>
+            <br/>
             <button
             onClick={onClickFavorite} 
             type="submit" 

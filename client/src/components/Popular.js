@@ -29,12 +29,12 @@ export default function Popular() {
     }
 
     return (
-        <div style={{ width: '100%', margin: 0 }}>
+        <div className="image-container">
             {movies[0] &&
                 <MainImage image={`http://image.tmdb.org/t/p/w1280${movies[0].backdrop_path}`} 
                 title={movies[0].original_title} text={movies[0].overview}/>
             } 
-            <div style={{width: '85%', margin: '1rem auto'}}>
+            <div className="movie-title">
                 <h2>Popular Movies</h2>
                 <hr/>
             </div>
@@ -49,13 +49,14 @@ export default function Popular() {
                                 <GridCard
                                     image={movie.poster_path && `http://image.tmdb.org/t/p/w500${movie.poster_path}`}
                                     movieId={movie.id}
+                                    title={movie.original_title}
                                 />
                             </React.Fragment>
                         ))}
                     </div>
                 </div>
             </div>
-            <div style={{display:'flex', justifyContent:'center'}}>
+            <div className="load-button">
                 <button onClick={handleClick} className="btn btn-info"> Load More </button>
             </div>
             <br/>
