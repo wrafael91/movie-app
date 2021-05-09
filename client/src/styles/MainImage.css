@@ -3,30 +3,34 @@
 }
 
 .hero-image {
+    display: flex;
     position: relative;
 }
 
 .hero-image img {
+    align-items: center;
+    justify-content: center;
     background: linear-gradient(to bottom, rgba(0,0,0,0)
     39%, rgba(0,0,0,0)
     41%, rgba(0,0,0,0.65)
     100%), #1c1c1c;
-    height: 550px;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center center;
     width: 100%;
+    height: 550px;
+    overflow: hidden;
 }
 
 .description {
     position: absolute; 
     background: rgba(0,0,0,0.65);
     max-width: 500px;
-    max-height:fit-content; 
+    max-height: fit-content; 
     top: 42%;
     bottom: 10%;
     padding: 25px;
-    overflow:visible;   
+    overflow: visible;   
 }
 
 .description > h2, span, p {
@@ -58,6 +62,10 @@
 }
 
 @media screen and (max-width: 495px) {
+    .hero-image img {
+        
+    }
+    
     .description {
         margin-top: 40px;
     }
