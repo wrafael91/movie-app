@@ -10,3 +10,13 @@
     display: flex;
     justify-content: center;
 }
+
+.movie-data > table{
+    font-size: 14px;
+}
+
+@media screen and (max-width: 495px) {
+    .movie-data > table{
+        font-size: 10px;
+    }
+}

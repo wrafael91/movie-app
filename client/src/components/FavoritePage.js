@@ -44,7 +44,13 @@ function FavoritePage() {
         return  <tr>
                     <td>{movie.movieTitle}</td>
                     <td>{movie.movieRunTime} mins</td>
-                    <td><button onClick={() => onClickRemove(movie.movieId)}>Remove</button></td>
+                    <td>
+                        <button 
+                        onClick={() => onClickRemove(movie.movieId)}
+                        class="btn btn-warning">
+                        Remove
+                        </button>
+                    </td>
                 </tr>
     })
 
