@@ -47,7 +47,7 @@ function FavoritePage() {
                     <td>
                         <button 
                         onClick={() => onClickRemove(movie.movieId)}
-                        class="btn btn-warning">
+                        className="btn btn-warning">
                         Remove
                         </button>
                     </td>
@@ -56,7 +56,7 @@ function FavoritePage() {
 
     return (
         <div id="fav-table">
-            <h3>Favorite Movies List</h3>
+            <h1>Favorite Movies List</h1>
             <table className="table">
                 <thead>
                     <tr>

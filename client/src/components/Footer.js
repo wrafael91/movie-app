@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../styles/Footer.css';
 
 export default function Footer() {
@@ -9,7 +8,7 @@ export default function Footer() {
                 <div className="row-footer">
                     <div className="movie-title">
                         <br/>
-                        <h5 className="card-title text-white">TheMovieDB</h5>
+                        <span className="card-title text-white">TheMovieDB</span>
                         <p className="card-text text-white">Get the latest info about all movies</p>
                     </div>
                     <br/>
@@ -17,11 +16,10 @@ export default function Footer() {
                 <br/>
                 <div className="copyright">
                     <div className="col-xs-6">
-                    © 2021 Copyright - TheMovieDB - Developed by @wrmp91
+                        <span>© 2021 Copyright - <a href="https://www.themoviedb.org/">TheMovieDB</a> - Developed by <a href="https://www.github.com/wrafael91">@wrmp91</a></span>
                     </div>
                 </div>
             </div>
-            
         </div>
     )
 }
