@@ -66,6 +66,10 @@
         
     }
     
+    .movie-title > h2 {
+        font-size: 25px;
+        text-align: center;
+    }
     .description {
         margin-top: 40px;
     }
