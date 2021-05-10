@@ -7,7 +7,6 @@ export default function Footer() {
             <div className="container">
                 <div className="row-footer">
                     <div className="movie-title">
-                        <br/>
                         <span className="card-title text-white">TheMovieDB</span>
                         <p className="card-text text-white">Get the latest info about all movies</p>
                     </div>
