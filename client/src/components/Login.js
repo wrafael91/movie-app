@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import Swal from 'sweetalert2';
 import {Card} from 'react-bootstrap';
+import '../styles/Login.css'
 
 export default function Login() {
 
@@ -38,15 +39,12 @@ export default function Login() {
     }
 
     return (
-        <div className="col s12 m4 l2" style={{width: '100%', 
-        display:'flex', justifyContent:'center', alignContent:'center',marginTop:"25px", marginBottom:"25px"}}>
+        <div className="login-box col s12 m4 l2">
             <div className="row">
-                <Card border="secondary" className="col s12 m4 l2" ><p></p>
+                <Card border="secondary" className="col s12 m4 l2">
                 <br/>
-                <br/>
-                    <form className="col s12 m4 l8" onSubmit={login}>
-                    
-                        <div style={{display:'flex',justifyContent:'center'}}>
+                    <form className="form-box col s12 m4 l8" onSubmit={login}>
+                        <div className="login-title">
                             <h4>Login Form</h4>
                         </div>
                         <div className="form-group">
@@ -71,16 +69,13 @@ export default function Login() {
                             onChange={(e)=>setPassword(e.target.value)}
                             />
                         </div>
-                        <div style={{display:'flex', justifyContent:'center'}}>
+                        <div className="login-button">
                             <button type="submit" className="btn btn-success">Login</button>
-                            
                         </div>
                         <br/>
-                        <div style={{display:'flex',justifyContent:'center'}}>
+                        <div className="enroll-now">
                             <h5>Haven't registered yet? <a href="/signup"> Enroll now</a></h5>
                         </div>
-                    <br/>
-                    <br/>
                     <br/>
                     </form>
                 </Card>

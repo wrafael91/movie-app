@@ -32,9 +32,9 @@
         font-size: 20px;
     }
     .movie-title > p {
-        font-size: 12px;
+        font-size: 15px;
     }
-    .col-xs-6 > span, a {
-        font-size: 12px;
+    .footer-title > span {
+        font-size: 15px;
     }
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import Swal from 'sweetalert2';
 import {Card} from 'react-bootstrap';
-
+import '../styles/Register.css';
 
 export default function Register() {
 
@@ -34,15 +34,13 @@ export default function Register() {
     }
 
     return (
-        <div className="col s12 m4 l2" style={{width: '100%', 
-        display:'flex', justifyContent:'center', alignContent:'center',marginTop:"25px", marginBottom:"25px"}}>
+        <div className="register-box col s12 m4 l2" >
             <div className="row">
                 <Card border="secondary" className="col s12 m4 l2">
-                    <form className="col s12 m4 l8" onSubmit={register}>
+                    <form className="form-box col s12 m4 l8" onSubmit={register}>
                     <br/>
-                    <br/>
-                        <label style={{display:'flex',justifyContent:'center'}}>To get access to all content you need to register first</label>
-                        <div style={{display:'flex',justifyContent:'center'}}>
+                        <label>To get access to all content you need to register first</label>
+                        <div className="register-title">
                             <h4>Registration Form</h4>
                         </div>
                         <br/>
@@ -59,12 +57,11 @@ export default function Register() {
                             <label for="password">Password</label>
                             <input placeholder="Password" type="password" className="form-control" id="password" onChange={(e)=>setPassword(e.target.value)}/>
                         </div>
-                        <div style={{display:'flex',justifyContent:'center'}}>
+                        <div className="register-button">
                             <button type="submit" className="btn btn-primary">Submit</button>
                         </div>
                         <br/>
-                        <h5>Do you have an account already? <a href="/login"> Login Now</a></h5>
-                    <br/>
+                        <h5>Do you have an account already? <br/><a href="/login"> Login Now</a></h5>
                     <br/>
                     </form>
                 </Card>
