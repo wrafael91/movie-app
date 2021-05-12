@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy": "git subtree push --prefix server heroku master"
+    "deploy:server": "git subtree push --prefix server heroku master",
+    "build:client": "cd client && npm run build && npx move-cli build ../docs"
   },
   "repository": {
     "type": "git",
