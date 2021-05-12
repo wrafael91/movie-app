@@ -1,22 +1,26 @@
 const express = require("express");
 const app = express();
-const morgan = require('morgan');
+const morgan = require("morgan");
 require("./routes/database.js");
-const cors = require('cors');
+const cors = require("cors");
 
 // PORT
-app.set('Port', 5000);
+app.set("Port", 5000);
 
 // Middleware
-app.use(morgan('dev'));
-app.use(express.urlencoded({extended: true}));
+app.use(morgan("dev"));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors({origen: "*"}));
+app.use(cors({ origen: "*" }));
 
 //Routes
-app.use('/app', require('./routes/routes.js'));
-app.use('/app/favorite', require('./routes/favorite.js'));
+app.use("/app", require("./routes/routes.js"));
+app.use("/app/favorite", require("./routes/favorite.js"));
 
-app.listen(app.get('Port'), () => {
-  console.log('Server running on port ', app.get('Port'))
-})
+app.get("/", (request, response) => {
+  response.send("is working");
+});
+
+app.listen(app.get("Port"), () => {
+  console.log("Server running on port ", app.get("Port"));
+});
