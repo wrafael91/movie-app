@@ -12,7 +12,7 @@ export default function Login() {
     const login = async (e) => {
         e.preventDefault();
         const userData = {email, password};
-        const answer = await Axios.post('http://localhost:5000/app/login', userData);
+        const answer = await Axios.post(`${process.env.REACT_APP_API_URL}/app/login`, userData);
         const message = answer.data.message;
         if (message !== 'Welcome') {
             Swal.fire({

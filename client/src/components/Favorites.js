@@ -17,7 +17,7 @@ export default function Favorites(props) {
 
     useEffect(() => {
 
-        Axios.post('http://localhost:5000/app/favorite/favoriteNumber', variable)
+        Axios.post(`${process.env.REACT_APP_API_URL}/app/favorite/favoriteNumber`, variable)
             .then(response => {
                 if (response.data.success) {
                     setFavoriteNumber(response.data.FavoriteNumber)
@@ -26,7 +26,7 @@ export default function Favorites(props) {
                 }
             })
 
-        Axios.post('http://localhost:5000/app/favorite/favorited', variable)
+        Axios.post(`${process.env.REACT_APP_API_URL}/app/favorite/favorited`, variable)
             .then(response => {
                 if(response.data.success) {
                     setFavorited(response.data.Favorited)
@@ -39,7 +39,7 @@ export default function Favorites(props) {
 
     const onClickFavorite = () => {
         if(Favorited) {
-            Axios.post('http://localhost:5000/app/favorite/removeFromFavorite', variable)
+            Axios.post(`${process.env.REACT_APP_API_URL}/app/favorite/removeFromFavorite`, variable)
             .then(response => {
                 if (response.data.success) {
                     setFavoriteNumber(FavoriteNumber - 1)
@@ -49,7 +49,7 @@ export default function Favorites(props) {
                 }
             })
         } else {
-            Axios.post('http://localhost:5000/app/favorite/addToFavorite', variable)
+            Axios.post(`${process.env.REACT_APP_API_URL}/app/favorite/addToFavorite`, variable)
             .then(response => {
                 if (response.data.success) {
                     setFavoriteNumber(FavoriteNumber + 1)

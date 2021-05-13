@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import MainImage from './MainImage';
 import GridCard from './GridCard';
 import Favorites from './Favorites';
-import apikeys from '../config/config';
 import '../styles/MovieInfo.css';
+const apikeys = process.env.REACT_APP_API_KEY;
 
 function MovieInfo(props) {
     const movieId = props.match.params.movieId
@@ -25,7 +25,6 @@ function MovieInfo(props) {
                 .then(response => response.data)
                 
                 .then(response => {
-                    console.log(response.data)
                     setCast(response.cast)
                 })
             })

@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
 
 // Setting up MongoDB 
-const serverKeys = require('../config/config.js');
 
-mongoose.connect(serverKeys.MONGOURI_API_KEY, {
+mongoose.connect(process.env.MONGOURI_API_KEY, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,

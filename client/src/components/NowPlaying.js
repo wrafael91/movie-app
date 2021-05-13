@@ -2,8 +2,8 @@ import Axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import MainImage from './MainImage';
 import GridCard from './GridCard';
-import apikeys from '../config/config';
 import '../styles/MainImage.css';
+const apikeys = process.env.REACT_APP_API_KEY;
 const movieUrl = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apikeys.REACT_APP_API_KEY}&language=en-US&page=1`;
 
 

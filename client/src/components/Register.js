@@ -13,7 +13,7 @@ export default function Register() {
     const register = async (e) => {
         e.preventDefault();
         const userData = {name, email, password};
-        const answer = await Axios.post('http://localhost:5000/app/signup', userData);
+        const answer = await Axios.post(`${process.env.REACT_APP_API_URL}/app/signup`, userData);
         const message = answer.data.message;
         if (message !== 'Welcome') {
             Swal.fire({

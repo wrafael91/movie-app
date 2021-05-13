@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import '../styles/FavoritePage.css';
+require('dotenv').config()
 function FavoritePage() {
     
     const variables = {userFrom: localStorage.getItem('iduser')}
@@ -12,7 +13,7 @@ function FavoritePage() {
     }, [])
     
     const fetchFavoritedMovies = () => {
-        Axios.post('http://localhost:5000/app/favorite/getFavoritedMovie', variables)
+        Axios.post(`${process.env.REACT_APP_API_URL}/app/favorite/getFavoritedMovie`, variables)
         .then(response => {
             if(response.data.success) {
                 setFavoritedMovies(response.data.favorites)
@@ -30,7 +31,7 @@ function FavoritePage() {
             userFrom: localStorage.getItem('iduser')
         }
 
-        Axios.post('http://localhost:5000/app/favorite/removeFromFavorite', variable)
+        Axios.post(`${process.env.REACT_APP_API_URL}/app/favorite/removeFromFavorite`, variable)
             .then(response => {
                 if (response.data.success) {
                     fetchFavoritedMovies();
@@ -47,8 +48,9 @@ function FavoritePage() {
                     <td>
                         <button 
                         onClick={() => onClickRemove(movie.movieId)}
-                        className="btn btn-warning">
-                        Remove
+                        className="btn btn-warning"
+                        >
+                          Remove
                         </button>
                     </td>
                 </tr>
