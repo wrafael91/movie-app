@@ -5,7 +5,7 @@ if (process.env.NODE_ENV !== "production") {
 const express = require("express");
 const app = express();
 const morgan = require('morgan');
-require("./src/routes/database.js");
+require("./routes/database.js");
 const cors = require('cors');
 
 // PORT
@@ -18,8 +18,8 @@ app.use(express.json());
 app.use(cors({origen: "*"}));
 
 //Routes
-app.use('/app', require('./src/routes/routes.js'));
-app.use('/app/favorite', require('./src/routes/favorite.js'));
+app.use('/app', require('./routes/routes.js'));
+app.use('/app/favorite', require('./routes/favorite.js'));
 
 app.get("/", (request, response) => {
   response.send("is working");
