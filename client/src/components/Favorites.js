@@ -13,29 +13,6 @@ const favorited = (path, callback) => {
         .then(callback)
 }
 
-// const favoriteNumber = () => {
-//     Axios.post(`${process.env.REACT_APP_API_URL}/app/favorite/favoriteNumber`, variable)
-//       .then(response => {
-//           if (response.data.success) {
-//               setFavoriteNumber(response.data.FavoriteNumber)
-//           } else {
-//               alert('Failed to get favoriteNumber')
-//           }
-//       })
-// } 
-
-//   const favorited = () => {
-//       Axios.post(`${process.env.REACT_APP_API_URL}/app/favorite/favorited`, variable)
-//       .then(response => {
-//           if(response.data.success) {
-//               setFavorited(response.data.Favorited)
-//           } else {
-//               alert('Failed to get favorite info')
-//           }
-//       })
-//   }
-
-
 export default function Favorites(props) {
     const variable = {
         userFrom: props.userFrom,
@@ -51,14 +28,14 @@ export default function Favorites(props) {
 
 
     useEffect(() => {
-        favoriteNumber((favNumUrl,variable), (response) => {
+        favoriteNumber(favNumUrl, (response) => {
             if (response.data.success) {
                 setFavoriteNumber(response.data.FavoriteNumber)
             } else {
                 alert('Failed to get favoriteNumber')
             }
         })
-        favorited((favUrl, variable), (response) => {
+        favorited(favUrl, (response) => {
             if(response.data.success) {
                 setFavorited(response.data.Favorited)
             } else {

@@ -29,7 +29,7 @@ function MovieInfo(props) {
                     setCast(response.cast)
                 })
             })
-    }, [])
+    }, [movieId])
 
     const handleClick = () => {
         setActor(!Actor)
