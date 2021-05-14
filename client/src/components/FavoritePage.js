@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import '../styles/FavoritePage.css';
 require('dotenv').config()
+
+const variables = {userFrom: localStorage.getItem('iduser')}
+
 function FavoritePage() {
     
-    const variables = {userFrom: localStorage.getItem('iduser')}
-
     const [FavoritedMovies, setFavoritedMovies] = useState([])
-
+    
     useEffect(() => {
         fetchFavoritedMovies();
     }, [])

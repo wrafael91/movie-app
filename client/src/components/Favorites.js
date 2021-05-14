@@ -1,11 +1,42 @@
 import React, { useEffect, useState } from 'react'
 import Axios from 'axios';
+const favNumUrl = (`${process.env.REACT_APP_API_URL}/app/favorite/favoriteNumber`);
+const favUrl = (`${process.env.REACT_APP_API_URL}/app/favorite/favorited`);
+
+const favoriteNumber = (path, callback) => {
+    Axios.post(path)
+        .then(callback)
+}
+
+const favorited = (path, callback) => {
+    Axios.post(path)
+        .then(callback)
+}
+
+// const favoriteNumber = () => {
+//     Axios.post(`${process.env.REACT_APP_API_URL}/app/favorite/favoriteNumber`, variable)
+//       .then(response => {
+//           if (response.data.success) {
+//               setFavoriteNumber(response.data.FavoriteNumber)
+//           } else {
+//               alert('Failed to get favoriteNumber')
+//           }
+//       })
+// } 
+
+//   const favorited = () => {
+//       Axios.post(`${process.env.REACT_APP_API_URL}/app/favorite/favorited`, variable)
+//       .then(response => {
+//           if(response.data.success) {
+//               setFavorited(response.data.Favorited)
+//           } else {
+//               alert('Failed to get favorite info')
+//           }
+//       })
+//   }
+
 
 export default function Favorites(props) {
-
-    const [FavoriteNumber, setFavoriteNumber] = useState(0)
-    const [Favorited, setFavorited] = useState(false)
-
     const variable = {
         userFrom: props.userFrom,
         movieId: props.movieId,
@@ -14,27 +45,26 @@ export default function Favorites(props) {
         movieRunTime: props.movieInfo.runtime
     }
 
+    const [FavoriteNumber, setFavoriteNumber] = useState(0)
+    const [Favorited, setFavorited] = useState(false)
+
+
 
     useEffect(() => {
-
-        Axios.post(`${process.env.REACT_APP_API_URL}/app/favorite/favoriteNumber`, variable)
-            .then(response => {
-                if (response.data.success) {
-                    setFavoriteNumber(response.data.FavoriteNumber)
-                } else {
-                    alert('Failed to get favoriteNumber')
-                }
-            })
-
-        Axios.post(`${process.env.REACT_APP_API_URL}/app/favorite/favorited`, variable)
-            .then(response => {
-                if(response.data.success) {
-                    setFavorited(response.data.Favorited)
-                } else {
-                    alert('Failed to get favorite info')
-                }
-            })
-
+        favoriteNumber((favNumUrl,variable), (response) => {
+            if (response.data.success) {
+                setFavoriteNumber(response.data.FavoriteNumber)
+            } else {
+                alert('Failed to get favoriteNumber')
+            }
+        })
+        favorited((favUrl, variable), (response) => {
+            if(response.data.success) {
+                setFavorited(response.data.Favorited)
+            } else {
+                alert('Failed to get favorite info')
+            }
+        })
     }, [])
 
     const onClickFavorite = () => {

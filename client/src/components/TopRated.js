@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import MainImage from './MainImage';
 import GridCard from './GridCard';
 import '../styles/MainImage.css';
-import { TOP_RATED } from '../apis';
-const movieUrl = `${TOP_RATED}&page=1`;
+import  ENDPOINTS  from '../apis';
+const movieUrl = `${ENDPOINTS.TOP_RATED}&page=1`;
 
 const fetchMovies = (path, callback) => {
     Axios.get(path)
@@ -23,7 +23,7 @@ export default function TopRated() {
     }, []);
 
     const handleClick = () => {
-        const movieUrl1 = `${TOP_RATED}&page=${CurrentPage + 1}`;
+        const movieUrl1 = `${ENDPOINTS.TOP_RATED}&page=${CurrentPage + 1}`;
         fetchMovies(movieUrl1, (response) => {
             setMovies((movies) => [...movies, ...response.data.results])
             setCurrentPage(response.data.page)

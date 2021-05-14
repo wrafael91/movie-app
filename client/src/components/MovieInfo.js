@@ -4,7 +4,8 @@ import MainImage from './MainImage';
 import GridCard from './GridCard';
 import Favorites from './Favorites';
 import '../styles/MovieInfo.css';
-const apikeys = process.env.REACT_APP_API_KEY;
+const apiKey = process.env.REACT_APP_API_KEY;
+const apiUrl = 'https://api.themoviedb.org/3/movie';
 
 function MovieInfo(props) {
     const movieId = props.match.params.movieId
@@ -14,14 +15,14 @@ function MovieInfo(props) {
 
     useEffect(() => {
         
-        Axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apikeys.REACT_APP_API_KEY}&language=en-US`)
+        Axios.get(`${apiUrl}/${movieId}?api_key=${apiKey}&language=en-US`)
             .then(response => response.data)
             .then(response => {
                 
                 setMovie(response)
                 console.log(response)
 
-                Axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apikeys.REACT_APP_API_KEY}`)
+                Axios.get(`${apiUrl}/${movieId}/credits?api_key=${apiKey}`)
                 .then(response => response.data)
                 
                 .then(response => {

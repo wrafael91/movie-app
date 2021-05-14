@@ -2,8 +2,8 @@ import Axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import MainImage from './MainImage';
 import GridCard from './GridCard'
-import { POPULAR } from '../apis';
-const movieUrl = `${POPULAR}&page=1`;
+import  ENDPOINTS  from '../apis';
+const movieUrl = `${ENDPOINTS.POPULAR}&page=1`;
 
 const fetchMovies = (path, callback) => {
     Axios.get(path)
@@ -22,7 +22,7 @@ export default function Popular() {
     }, []);
 
     const handleClick = () => {
-        const movieUrl1 = `${POPULAR}&page=${CurrentPage + 1}`;
+        const movieUrl1 = `${ENDPOINTS.POPULAR}&page=${CurrentPage + 1}`;
         fetchMovies(movieUrl1, (response) => {
             setMovies((movies) => [...movies, ...response.data.results])
             setCurrentPage(response.data.page)

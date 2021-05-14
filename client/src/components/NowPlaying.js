@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import MainImage from './MainImage';
 import GridCard from './GridCard';
 import '../styles/MainImage.css';
-import { NOW_PLAYING } from '../apis.js';
-const movieUrl = `${NOW_PLAYING}&page=1`;
+import ENDPOINTS from '../apis.js';
+const movieUrl = `${ENDPOINTS.NOW_PLAYING}&page=1`;
 
 
 const fetchMovies = (path, callback) => {
@@ -24,7 +24,7 @@ export default function NowPlaying() {
     }, []);
 
     const handleClick = () => {
-        const movieUrl1 = `${NOW_PLAYING}&page=${CurrentPage + 1}`;
+        const movieUrl1 = `${ENDPOINTS.NOW_PLAYING}&page=${CurrentPage + 1}`;
         fetchMovies(movieUrl1, (response) => {
             setMovies((movies) => [...movies, ...response.data.results])
             setCurrentPage(response.data.page)

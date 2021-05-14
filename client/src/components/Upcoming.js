@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import MainImage from './MainImage';
 import GridCard from './GridCard';
 import '../styles/MainImage.css'; 
-import { UPCOMING } from '../apis';
-const movieUrl = `${UPCOMING}&page=1`;
+import  ENDPOINTS from '../apis';
+const movieUrl = `${ENDPOINTS.UPCOMING}&page=1`;
 
 const fetchMovies = (path, callback) => {
     Axios.get(path)
@@ -23,7 +23,7 @@ export default function Upcoming() {
     }, []);
 
     const handleClick = () => {
-        const movieUrl1 = `${UPCOMING}&page=${CurrentPage + 1}`;
+        const movieUrl1 = `${ENDPOINTS.UPCOMING}&page=${CurrentPage + 1}`;
         fetchMovies(movieUrl1, (response) => {
             setMovies((movies) => [...movies, ...response.data.results])
             setCurrentPage(response.data.page)
