@@ -49,7 +49,7 @@ export default function Login() {
                         </div>
                         <div className="form-group">
                             <br/>
-                            <label for="name">Email</label>
+                            <label htmlFor="name">Email</label>
                             <input 
                             placeholder="Email" 
                             id="email"
@@ -60,7 +60,7 @@ export default function Login() {
                             />
                         </div>
                         <div className="form-group">
-                            <label for="password">Password</label>
+                            <label htmlFor="password">Password</label>
                             <input 
                             placeholder="Password" 
                             id="password" 

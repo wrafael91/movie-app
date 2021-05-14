@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import MainImage from './MainImage';
 import GridCard from './GridCard';
 import '../styles/MainImage.css';
-import { NOW_PLAYING } from '../apis';
+import { NOW_PLAYING } from '../apis.js';
 const movieUrl = `${NOW_PLAYING}&page=1`;
 
 

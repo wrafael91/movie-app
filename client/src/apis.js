@@ -8,4 +8,4 @@ const endpoints = {
   UPCOMING: `${apiUrl}/upcoming?api_key=${apiKey}&language=en-US`
 }
 
-export default endpoints;
+export default endpoints

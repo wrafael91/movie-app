@@ -45,16 +45,16 @@ export default function Register() {
                         </div>
                         <br/>
                         <div className="form-group">
-                            <label for="name">Name</label>
+                            <label htmlFor="name">Name</label>
                             <input placeholder="Name"  type="text" className="form-control" id="name" aria-describedby="" onChange={(e)=>setName(e.target.value)}
                             autoFocus required />
                         </div>
                         <div className="form-group">
-                            <label for="email">Email</label>
+                            <label htmlFor="email">Email</label>
                             <input placeholder="Email" type="email" className="form-control" id="email" aria-describedby="emailHelp" onChange={(e)=>setEmail(e.target.value)} />
                         </div>
                         <div className="form-group">
-                            <label for="password">Password</label>
+                            <label htmlFor="password">Password</label>
                             <input placeholder="Password" type="password" className="form-control" id="password" onChange={(e)=>setPassword(e.target.value)}/>
                         </div>
                         <div className="register-button">
