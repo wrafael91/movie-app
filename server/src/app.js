@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(cors({origen: "*"}));
 
 //Routes
-app.use('/app', require('./routes/routes.js'));
+app.use('/app', require('./routes/index.js'));
 app.use('/app/favorite', require('./routes/favorite.js'));
 
 app.get("/", (request, response) => {
