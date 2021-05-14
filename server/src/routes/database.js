@@ -9,6 +9,6 @@ mongoose.connect(process.env.MONGOURI_API_KEY, {
   useFindAndModify: true
 })
 .then(db => console.log('MongoDB database connected'))
-.catch(error => console.log('error'));
+.catch(error => console.log(error));
 
 module.exports = mongoose;
