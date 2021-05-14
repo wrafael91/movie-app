@@ -2,29 +2,32 @@ import Axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import MainImage from './MainImage';
 import GridCard from './GridCard';
-import '../styles/MainImage.css';
-const apikeys = process.env.REACT_APP_API_KEY;
-const movieUrl = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apikeys.REACT_APP_API_KEY}&language=en-US&page=1`;
+import '../styles/MainImage.css'; 
+import { UPCOMING } from '../apis';
+const movieUrl = `${UPCOMING}&page=1`;
 
+const fetchMovies = (path, callback) => {
+    Axios.get(path)
+        .then(callback)
+} 
 export default function Upcoming() {
 
     const [movies, setMovies] = useState([]);
     const [CurrentPage, setCurrentPage] = useState(0);
 
     useEffect(() => {
-        fetchMovies(movieUrl)
+        fetchMovies(movieUrl, (response) => {
+            setMovies((movies) => [...movies, ...response.data.results])
+            setCurrentPage(response.data.page)
+        })
     }, []);
 
-    const fetchMovies = (path) => {
-        Axios.get(path)
-            .then(response => {
-                setMovies([...movies, ...response.data.results])
-                setCurrentPage(response.data.page)
-            })
-    } 
     const handleClick = () => {
-        const movieUrl1 = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apikeys.REACT_APP_API_KEY}&language=en-US&page=${CurrentPage + 1}`;
-        fetchMovies(movieUrl1)
+        const movieUrl1 = `${UPCOMING}&page=${CurrentPage + 1}`;
+        fetchMovies(movieUrl1, (response) => {
+            setMovies((movies) => [...movies, ...response.data.results])
+            setCurrentPage(response.data.page)
+        })
     }
 
     return (

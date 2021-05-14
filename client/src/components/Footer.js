@@ -3,7 +3,7 @@ import '../styles/Footer.css';
 
 export default function Footer() {
     return(
-        <div class="card-body text-white bg-dark mb-3">
+        <div className="card-body text-white bg-dark mb-3">
             <div className="container">
                 <div className="row-footer">
                     <div className="movie-title">
