@@ -59,10 +59,10 @@ export default function Register() {
                             <input placeholder="Password" type="password" className="form-control" id="password" onChange={(e)=>setPassword(e.target.value)}/>
                         </div>
                         <div className="register-button">
-                            <button type="submit" className="btn btn-primary"><Link to="/login">Submit</Link></button>
+                            <button type="submit" className="btn btn-primary">Submit</button>
                         </div>
                         <br/>
-                        <h5>Do you have an account already? <br/><Link to="/login"> Login Now</Link></h5>
+                        <h5>Do you have an account already? <br/><Link to="/login"> Login now</Link></h5>
                     <br/>
                     </form>
                 </Card>

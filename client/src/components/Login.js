@@ -71,7 +71,7 @@ export default function Login() {
                             />
                         </div>
                         <div className="login-button">
-                            <button type="submit" className="btn btn-success"><Link to="/home">Login</Link></button>
+                            <button type="submit" className="btn btn-success" >Login</button>
                         </div>
                         <br/>
                         <div className="enroll-now">
