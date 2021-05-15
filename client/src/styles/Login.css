@@ -28,7 +28,7 @@
         font-size: 20px;
         font-weight: 600;
     }
-    .enroll-now > h5, a {
+    .enroll-now > h5, Link {
         font-size: 15px;
     }
     .form-group > label {

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import Axios from 'axios';
 import Swal from 'sweetalert2';
 import {Card} from 'react-bootstrap';
@@ -61,7 +62,7 @@ export default function Register() {
                             <button type="submit" className="btn btn-primary">Submit</button>
                         </div>
                         <br/>
-                        <h5>Do you have an account already? <br/><a href="/login"> Login Now</a></h5>
+                        <h5>Do you have an account already? <br/><Link to="/login"> Login Now</Link></h5>
                     <br/>
                     </form>
                 </Card>

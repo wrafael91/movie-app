@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import '../styles/Footer.css';
 
 export default function Footer() {
@@ -15,7 +16,7 @@ export default function Footer() {
                 <br/>
                 <div className="copyright">
                     <div className="footer-title col-xs-6">
-                        <span>© 2021 Copyright - <a href="https://www.themoviedb.org/">TheMovieDB</a> - Developed by <a href="https://www.github.com/wrafael91">@wrmp91</a></span>
+                        <span>© 2021 Copyright - <Link to="https://www.themoviedb.org/">TheMovieDB</Link> - Developed by <Link to="https://www.github.com/wrafael91">@wrmp91</Link></span>
                     </div>
                 </div>
             </div>

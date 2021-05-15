@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import '../styles/GridMovies.css';
 
 function GridCard(props) {
@@ -22,9 +23,9 @@ function GridCard(props) {
             <div className="movie-card" >
                 <ul className="list-group-movie">
                     <li key={props.id} >
-                        <a href={`/movie/${props.movieId}`}>
+                        <Link to={`/movie/${props.movieId}`}>
                             <img alt="img" src={props.image}/>
-                        </a>
+                        </Link>
                     </li>
                     <label>{props.title}</label>
                 </ul>
