@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import Axios from 'axios';
 import Swal from 'sweetalert2';
 import {Card} from 'react-bootstrap';
@@ -74,7 +75,7 @@ export default function Login() {
                         </div>
                         <br/>
                         <div className="enroll-now">
-                            <h5>Haven't registered yet? <a href="/signup"> Enroll now</a></h5>
+                            <h5>Haven't registered yet? <Link to="/signup"> Enroll now</Link></h5>
                         </div>
                     <br/>
                     </form>
