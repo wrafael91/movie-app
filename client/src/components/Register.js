@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Axios from 'axios';
 import Swal from 'sweetalert2';
@@ -7,6 +8,7 @@ import '../styles/Register.css';
 
 export default function Register() {
 
+    let history = useHistory();
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
@@ -24,7 +26,7 @@ export default function Register() {
                 timer: 2500
             })
         } else {
-            window.location.href='/login';
+            history.push('/login');
             Swal.fire({
                 icon: 'success',
                 title: 'Successful registered',

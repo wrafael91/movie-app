@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import '../styles/Nav.css';
 
 export default function Nav() {
 
+    let history = useHistory();
     const [menu, setMenu] = useState(false);
 
     useEffect(() => {
@@ -14,7 +16,7 @@ export default function Nav() {
 
     const logout = () => {
         sessionStorage.clear();
-        window.location.href="/home";
+        history.push("/login");
     }
 
     return(
@@ -41,7 +43,7 @@ export default function Nav() {
                         <li className="nav-item"><Link className="nav-link" to="/home"><i className="fas fa-user"><span> Welcome {sessionStorage.getItem('name')}</span> </i></Link></li>
                     </ul>
                     <form className="form-inline my-2 my-lg-0">
-                        <Link onClick={()=>logout()} className="btn btn-danger mr-sm-2" to="/top-rated" role="button">Logout</Link>
+                        <Link onClick={()=>logout()} className="btn btn-danger mr-sm-2" to="/login" role="button">Logout</Link>
                     </form>
                 </div>
             : 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Axios from 'axios';
 import Swal from 'sweetalert2';
@@ -7,6 +8,7 @@ import '../styles/Login.css'
 
 export default function Login() {
 
+    let history = useHistory();
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
 
@@ -29,7 +31,7 @@ export default function Login() {
             sessionStorage.setItem('token', token);
             sessionStorage.setItem('name', name);
             sessionStorage.setItem('iduser', iduser);
-            window.location.href='/home';
+            history.push("/home");
             Swal.fire({
                 icon: 'success',
                 title: message,

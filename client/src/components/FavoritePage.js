@@ -18,7 +18,6 @@ function FavoritePage() {
         .then(response => {
             if(response.data.success) {
                 setFavoritedMovies(response.data.favorites)
-                console.log(response.data.favorites)
             } else {
                 alert('Failed to get favorite movies ')
             }

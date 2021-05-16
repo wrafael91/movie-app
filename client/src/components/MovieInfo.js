@@ -20,7 +20,6 @@ function MovieInfo(props) {
             .then(response => {
                 
                 setMovie(response)
-                console.log(response)
 
                 Axios.get(`${apiUrl}/${movieId}/credits?api_key=${apiKey}`)
                 .then(response => response.data)
