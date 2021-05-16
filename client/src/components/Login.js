@@ -31,7 +31,7 @@ export default function Login() {
             sessionStorage.setItem('token', token);
             sessionStorage.setItem('name', name);
             sessionStorage.setItem('iduser', iduser);
-            window.location.href='/home';
+            history.push('/home');
             Swal.fire({
                 icon: 'success',
                 title: message,

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import '../styles/Nav.css';
 
 export default function Nav() {
 
-    
+    let history = useHistory();
     const [menu, setMenu] = useState(false);
 
     useEffect(() => {
@@ -16,7 +16,7 @@ export default function Nav() {
 
     const logout = () => {
         sessionStorage.clear();
-        window.location.href="/home";
+        history.push("/home");
     }
 
     return(
