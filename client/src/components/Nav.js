@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+
 import { Link } from "react-router-dom";
 import '../styles/Nav.css';
 
 export default function Nav() {
 
-    let history = useHistory();
+    
     const [menu, setMenu] = useState(false);
 
     useEffect(() => {
@@ -16,7 +16,7 @@ export default function Nav() {
 
     const logout = () => {
         sessionStorage.clear();
-        history.push("/login");
+        window.location.href="/home";
     }
 
     return(
@@ -42,9 +42,9 @@ export default function Nav() {
                     <ul className="navbar-nav">
                         <li className="nav-item"><Link className="nav-link" to="/home"><i className="fas fa-user"><span> Welcome {sessionStorage.getItem('name')}</span> </i></Link></li>
                     </ul>
-                    <form className="form-inline my-2 my-lg-0">
-                        <Link onClick={()=>logout()} className="btn btn-danger mr-sm-2" to="/login" role="button">Logout</Link>
-                    </form>
+                    <div className="form-inline my-2 my-lg-0">
+                        <Link onClick={()=>logout()} className="btn btn-danger mr-sm-2" to="/top-rated" role="button">Logout</Link>
+                    </div>
                 </div>
             : 
                 <div className="collapse navbar-collapse" id="navbarNav">
@@ -55,10 +55,10 @@ export default function Nav() {
                         <li className="nav-item-active"><Link className="nav-link" to="/upcoming">Upcoming</Link></li>
                         <li className="nav-item-active"><Link className="nav-link" to="/now-playing">Now-Playing</Link></li>
                     </ul>
-                    <form className="form-inline my-2 my-lg-0">
+                    <div className="form-inline my-2 my-lg-0">
                         <Link className="btn btn-primary mr-sm-3" to="/signup" role="button">SignUp</Link>
                         <Link className="btn btn-success my-2 my-sm-0" to="/login" role="button">Login</Link>
-                    </form>
+                    </div>
                 </div>
             }
             
