@@ -1,21 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import '../styles/Nav.css';
 
-export default function Nav() {
+export default function Nav(props) {
 
     let history = useHistory();
-    const [menu, setMenu] = useState(false);
-
-    useEffect(() => {
-        if (sessionStorage.getItem('token')){
-            setMenu(true)
-        }
-    }, [])
-
+    
     const logout = () => {
         sessionStorage.clear();
+        props.onLogout()
         history.push("/home");
     }
 
@@ -29,7 +23,7 @@ export default function Nav() {
                 <span className="navbar-toggler-icon"></span>
             </button>
             {
-                menu?
+                props.logged ? 
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li className="nav-item-active"><Link className="nav-link" to="/home">Home</Link></li>

@@ -42,7 +42,7 @@ function FavoritePage() {
     }
 
     const renderTableBody = FavoritedMovies.map((movie, index) => {
-        return  <tr>
+        return  <tr key={index}>
                     <td>{movie.movieTitle}</td>
                     <td>{movie.movieRunTime} mins</td>
                     <td>

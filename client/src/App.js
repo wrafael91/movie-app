@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import TopRated from './components/TopRated';
@@ -31,21 +31,22 @@ const PublicRoute = (props => {
 })
 
 function MovieApp() {
+    const [logged, setLogged] = useState(userValidated())
     return (
         <BrowserRouter>
             <div>
-                <Nav />
+                <Nav logged={logged} onLogout={()=>setLogged(false)}/>
                 <Switch>
                     <SecureRoute path="/top-rated" component={TopRated}/>
                     <SecureRoute path="/popular" component={Popular}/>
                     <SecureRoute path="/upcoming" component={Upcoming}/>
                     <SecureRoute path="/now-playing" component={NowPlaying}/>
                     <Route path="/signup" component={Register}/>
-                    <PublicRoute path="/login" component={Login}/>
+                    <PublicRoute path="/login" component={()=><Login onLogin={()=>setLogged(true)}/>}/>
                     <SecureRoute path="/home" component={Home}/>
                     <SecureRoute path="/favorites" component={FavoritePage}/>
                     <SecureRoute path="/movie/:movieId" component={MovieInfo}/>
-                    <Login />
+                    <Login onLogin={()=>setLogged(true)}/>
                     
                 </Switch>
                 <Footer />

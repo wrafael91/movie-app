@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import {Card} from 'react-bootstrap';
 import '../styles/Login.css'
 
-export default function Login() {
+export default function Login(props) {
 
     let history = useHistory();
     const [email,setEmail] = useState('');
@@ -31,6 +31,7 @@ export default function Login() {
             sessionStorage.setItem('token', token);
             sessionStorage.setItem('name', name);
             sessionStorage.setItem('iduser', iduser);
+            props.onLogin()
             history.push('/home');
             Swal.fire({
                 icon: 'success',
@@ -38,6 +39,7 @@ export default function Login() {
                 showConfirmButton: false,
                 timer: 2500
             })
+
         }
     }
 
