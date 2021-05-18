@@ -8,7 +8,7 @@ Client side uses React hooks (useState, useEffect) at function components to sav
 responsive on mobiles and tablets at different screen resolutions in which movie card images are aligned on columns and rows. Each movie card has got a green button to be added and discarded
 on 'Favorites' page.
 
-The authentication procedure for users is supported by JWT (jsonwebtoken) at server side as a unique token is created and paired with database info to identify if user already
+The authentication procedure for users is supported by JWT (jsonwebtoken) at server side as a unique token is created and matched with database info to identify if user already
 exists. New data is stored at MongoDB Atlas and password is hashed by bcrypt package. Subsequently, the new user is prompted to login page to initiate session and get 
 access to all movie content. 
 
