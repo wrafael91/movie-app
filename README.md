@@ -14,7 +14,7 @@ access to all movie content.
 
 The movie project is currently deployed on Heroku: https://tmdb-wrmp91.herokuapp.com/
 
-To get access to all content, first you need to create an account and then login into it.
+To get access to all content, you need to create an account first and then login into it.
 
 Any suggestion you may have, please, let me know it.
 
