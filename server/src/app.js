@@ -25,4 +25,4 @@ app.use('/app/favorite', require('./routes/favorite.js'));
 
 app.listen(app.get('Port'), () => {
   console.log('Server running on port ', app.get('Port'))
-})
+});
