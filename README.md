@@ -12,15 +12,7 @@ The authentication procedure for users is supported by JWT (jsonwebtoken) at ser
 exists. New data is stored at MongoDB Atlas and password is hashed by bcrypt package. Subsequently, the new user is prompted to login page to initiate session and get 
 access to all movie content. 
 
-The movie project is currently deployed on Heroku: https://tmdb-wrmp91.herokuapp.com/
-
-To get access to all content, you need to create an account first and then login into it.
-
-Any suggestion you may have, please, let me know it.
-
 Kind regards,
 
-William Manchabajoy - 
-Web Developer - 
-https://www.wrmp.me/
-  
+William Manchabajoy
+Web Developer
